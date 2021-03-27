@@ -12,10 +12,10 @@
                     <tr>
                         <td>
                             <p>
-                                <?=lang('EmailTemplate.account.verification.hello')?> <strong>Emin Arif Pirinç</strong>,
+                                <?=lang('EmailTemplate.text.account_verification_hello')?> <strong><?=$user->getFullName()?></strong>,
                             </p>
                             <p>
-                                <?=lang('EmailTemplate.account.verification.content')?>
+                                <?=lang('EmailTemplate.text.account_verification_content')?>
                             </p>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                 <tbody>
@@ -25,8 +25,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <a href="#" target="_blank">
-                                                                <?=lang('EmailTemplate.account.verification.button')?>
+                                                            <a href="<?=base_url(route_to('admin_account_verification', $user->getVerifyToken()))?>" target="_blank">
+                                                                <?=lang('EmailTemplate.text.account_verification_button')?>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -37,10 +37,10 @@
                                 </tbody>
                             </table>
                             <p>
-                                <?=lang('EmailTemplate.account.verification.ignore')?>
+                                <?=lang('EmailTemplate.text.account_verification_content_bottom')?>
                             </p>
                             <p>
-                                <?=lang('EmailTemplate.account.verification.thanks')?>
+                                <?=lang('EmailTemplate.text.account_verification_thanks')?>
                             </p>
                         </td>
                     </tr>

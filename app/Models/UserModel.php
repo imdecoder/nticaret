@@ -48,33 +48,33 @@
                 'numeric' => 'User.model.validation.group_id.numeric'
             ],*/
             'firstname' => [
-                'required' => 'User.model.validation.firstname.required',
-                'string' => 'User.model.validation.firstname.string',
-                'min_length' => 'User.model.validation.firstname.min_length'
+                'required' => 'Validation.text.firstname_required',
+                'string' => 'Validation.text.firstname_string',
+                'min_length' => 'Validation.text.firstname_min_length'
             ],
             'lastname' => [
-                'required' => 'User.model.validation.lastname.required',
-                'string' => 'User.model.validation.lastname.string',
-                'min_length' => 'User.model.validation.lastname.min_length'
+                'required' => 'Validation.text.lastname_required',
+                'string' => 'Validation.text.lastname_string',
+                'min_length' => 'Validation.text.lastname_min_length'
             ],
             'email' => [
-                'required' => 'User.model.validation.email.required',
-                'valid_email' => 'User.model.validation.email.valid_email',
-                'is_unique' => 'User.model.validation.email.is_unique'
+                'required' => 'Validation.text.email_required',
+                'valid_email' => 'Validation.text.email_valid_email',
+                'is_unique' => 'Validation.text.email_is_unique'
             ],
             'password' => [
-                'required' => 'User.model.validation.password.required'
+                'required' => 'Validation.text.password_required'
             ],
             'verify_key' => [
-                'required' => 'User.model.validation.verify_key.required',
-                'alpha' => 'User.model.validation.verify_key.alpha'
+                'required' => 'Validation.text.verify_key_required',
+                'alpha' => 'Validation.text.verify_key_alpha'
             ],
             'verify_code' => [
-                'numeric' => 'User.model.validation.verify_code.numeric',
-                'min_length' => 'User.model.validation.verify_code.min_length'
+                'numeric' => 'Validation.text.verify_code_numeric',
+                'min_length' => 'Validation.text.verify_code_min_length'
             ],
             'status' => [
-                'required' => 'User.model.validation.status.required'
+                'required' => 'Validation.text.status_required'
             ]
         ];
     }

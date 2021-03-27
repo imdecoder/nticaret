@@ -12,10 +12,10 @@
                     <tr>
                         <td>
                             <p>
-                                <?=lang('EmailTemplate.forgot.password.hello')?> <strong>Emin Arif Pirinç</strong>,
+                                <?=lang('EmailTemplate.text.password_forgot_hello')?> <strong><?=$user->getFullName()?></strong>,
                             </p>
                             <p>
-                                <?=lang('EmailTemplate.forgot.password.content')?>
+                                <?=lang('EmailTemplate.text.password_forgot_content')?>
                             </p>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                 <tbody>
@@ -25,8 +25,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <td>
-                                                            <a href="#" target="_blank">
-                                                                <?=lang('EmailTemplate.forgot.password.button')?>
+                                                            <a href="<?=base_url(route_to('admin_forgot_verification', $user->getVerifyToken()))?>" target="_blank">
+                                                                <?=lang('EmailTemplate.text.password_forgot_button')?>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -37,10 +37,10 @@
                                 </tbody>
                             </table>
                             <p>
-                                <?=lang('EmailTemplate.forgot.password.ignore')?>
+                                <?=lang('EmailTemplate.text.password_forgot_content_bottom')?>
                             </p>
                             <p>
-                                <?=lang('EmailTemplate.forgot.password.thanks')?>
+                                <?=lang('EmailTemplate.text.password_forgot_thanks')?>
                             </p>
                         </td>
                     </tr>

@@ -5,8 +5,9 @@
     use \App\Controllers\BaseController;
     use App\Entities\UserEntity;
     use App\Models\UserModel;
+    use App\Libraries\EmailTo;
 
-    class Register extends \App\Controllers\BaseController
+    class Register extends BaseController
     {
         protected $validation;
         protected $session;
@@ -53,12 +54,20 @@
                 if ($this->userModel->errors())
                 {
                     $this->session->setFlashdata(['errors' => $this->userModel->errors()]);
-
                     return redirect()->to(route_to('admin_register'));
                 }
 
-                $this->session->setFlashdata(['success' => 'Kayıt işlemi başarılı. Doğrulama bağlantısı e-posta adresinize gönderildi.']);
+                $email = new EmailTo();
+                $user = $this->userModel->find($insert);
+                $to = $email->settings()->setUser($user)->accountVerification()->send();
 
+                if ($to)
+                {
+                    $this->session->setFlashdata(['success' => lang('Success.text.register')]);
+                    return redirect()->to(route_to('admin_register'));
+                }
+
+                $this->session->setFlashdata(['errors' => lang('Errors.text.email_send_failed')]);
                 return redirect()->to(route_to('admin_register'));
             }
 

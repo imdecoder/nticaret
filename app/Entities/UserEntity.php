@@ -7,7 +7,6 @@
 
     class UserEntity extends Entity
     {
-        protected $id;
         protected $group_id;
         protected $firstname;
         protected $lastname;
@@ -19,11 +18,6 @@
         protected $status;
 
         protected $dates = ['created_at', 'updated_at', 'deleted_at'];
-
-        public function getID()
-        {
-            //return $this->attributes['id'];
-        }
 
         public function getGroupID()
         {
@@ -101,6 +95,11 @@
             }
 
             return $this->attributes['deleted_at'];
+        }
+
+        public function getVerifyToken()
+        {
+            return base64_encode($this->attributes['id'] . '.' . $this->attributes['verify_key']);
         }
 
         public function setGroupID(int $group_id)

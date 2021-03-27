@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <title>nTicaret Email</title>
+    <title>Tekoloji E-posta</title>
 
     <style>
 		/* -------------------------------------
@@ -378,7 +378,7 @@
 							</tr>
 							<tr>
 								<td class="content-block powered-by">
-									Powered by <a href="http://htmlemail.io">nTicaret</a>.
+									Powered by <a href="http://htmlemail.io">Tekoloji</a>.
 								</td>
 							</tr>
 						</table>

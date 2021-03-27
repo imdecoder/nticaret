@@ -12,10 +12,10 @@
                     <tr>
                         <td>
                             <p>
-                                <?=lang('EmailTemplate.account.success.hello')?> <strong>Emin Arif Pirinç</strong>,
+                                <?=lang('EmailTemplate.text.account_success_hello')?> <strong><?=$user->getFullName()?></strong>,
                             </p>
                             <p>
-                                <?=lang('EmailTemplate.account.success.content')?>
+                                <?=lang('EmailTemplate.text.account_success_content')?>
                             </p>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                 <tbody>
@@ -26,7 +26,7 @@
                                                     <tr>
                                                         <td>
                                                             <a href="#" target="_blank">
-                                                                <?=lang('EmailTemplate.account.success.button')?>
+                                                                <?=lang('EmailTemplate.text.account_success_button')?>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -37,7 +37,10 @@
                                 </tbody>
                             </table>
                             <p>
-                                <?=lang('EmailTemplate.account.success.thanks')?>
+                                <?=lang('EmailTemplate.text.account_success_content_bottom')?>
+                            </p>
+                            <p>
+                                <?=lang('EmailTemplate.text.account_success_thanks')?>
                             </p>
                         </td>
                     </tr>

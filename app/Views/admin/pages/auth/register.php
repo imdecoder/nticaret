@@ -12,7 +12,7 @@
                     <div class="card card-primary">
                         <div class="card-header">
                             <h4>
-                                <?=lang('Register.view.title')?>
+                                <?=lang('Register.text.title')?>
                             </h4>
                         </div>
                         <div class="card-body">
@@ -23,20 +23,20 @@
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label for="firstname">
-                                            <?=lang('Register.view.firstname')?>
+                                            <?=lang('Input.text.firstname')?>
                                         </label>
                                         <input type="text" name="firstname" class="form-control" id="firstname" required autofocus>
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="lastname">
-                                            <?=lang('Register.view.lastname')?>
+                                            <?=lang('Input.text.lastname')?>
                                         </label>
                                         <input type="text" name="lastname" class="form-control" id="lastname" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">
-                                        <?=lang('Register.view.email')?>
+                                        <?=lang('Input.text.email')?>
                                     </label>
                                     <input type="email" name="email" class="form-control" id="email" required>
                                     <div class="invalid-feedback"></div>
@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label for="password" class="d-block">
-                                            <?=lang('Register.view.password')?>
+                                            <?=lang('Input.text.password')?>
                                         </label>
                                         <input type="password" name="password" class="form-control pwstrength" id="password" data-indicator="pwindicator" required>
                                         <div id="pwindicator" class="pwindicator">
@@ -54,7 +54,7 @@
                                     </div>
                                     <div class="form-group col-6">
                                         <label for="password2" class="d-block">
-                                            <?=lang('Register.view.password_conf')?>
+                                            <?=lang('Input.text.password2')?>
                                         </label>
                                         <input type="password" name="password2" class="form-control" id="password2" required>
                                     </div>
@@ -63,13 +63,13 @@
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" name="contract" class="custom-control-input" id="contract" required>
                                         <label for="contract" class="custom-control-label">
-                                            <?=lang('Register.view.contract')?>
+                                            <?=lang('Register.text.contract')?>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                        <?=lang('Register.view.button')?>
+                                        <?=lang('Register.text.button')?>
                                     </button>
                                 </div>
                             </form>

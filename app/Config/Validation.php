@@ -45,39 +45,67 @@ class Validation
 		'firstname' => [
 			'rules' => 'required|string|min_length[3]',
 			'errors' => [
-				'required' => 'Register.controller.validation.firstname.required',
-				'string' => 'Register.controller.validation.firstname.string',
-				'min_length' => 'Register.controller.validation.firstname.min_length'
+				'required' => 'Validation.text.firstname_required',
+				'string' => 'Validation.text.firstname_string',
+				'min_length' => 'Validation.text.firstname_min_length'
 			]
 		],
 		'lastname' => [
 			'rules' => 'required|string|min_length[3]',
 			'errors' => [
-				'required' => 'Register.controller.validation.lastname.required',
-				'string' => 'Register.controller.validation.lastname.string',
-				'min_length' => 'Register.controller.validation.lastname.min_length'
+				'required' => 'Validation.text.lastname_required',
+				'string' => 'Validation.text.lastname_string',
+				'min_length' => 'Validation.text.lastname_min_length'
 			]
 		],
 		'email' => [
 			'rules' => 'required|valid_email',
 			'errors' => [
-				'required' => 'Register.controller.validation.email.required',
-				'valid_email' => 'Register.controller.validation.email.valid_email'
+				'required' => 'Validation.text.email_required',
+				'valid_email' => 'Validation.text.email_valid_email'
 			]
 		],
 		'password' => [
 			'rules' => 'required|min_length[3]',
 			'errors' => [
-				'required' => 'Register.controller.validation.password.required',
-				'min_length' => 'Register.controller.validation.password.min_length'
+				'required' => 'Validation.text.password_required',
+				'min_length' => 'Validation.text.password_min_length'
 			]
 		],
 		'password2' => [
 			'rules' => 'required|min_length[3]|matches[password]',
 			'errors' => [
-				'required' => 'Register.controller.validation.password2.required',
-				'min_length' => 'Register.controller.validation.password2.min_length',
-				'matches' => 'Register.controller.validation.password2.matches'
+				'required' => 'Validation.text.password2_required',
+				'min_length' => 'Validation.text.password2_min_length',
+				'matches' => 'Validation.text.password2_matches'
+			]
+		]
+	];
+
+	public $forgot = [
+		'email' => [
+			'rules' => 'required|valid_email',
+			'errors' => [
+				'required' => 'Validation.text.email_required',
+				'valid_email' => 'Validation.text.email_valid_email'
+			]
+		]
+	];
+
+	public $resetPassword = [
+		'password' => [
+			'rules' => 'required|min_length[3]',
+			'errors' => [
+				'required' => 'Validation.text.password_required',
+				'min_length' => 'Validation.text.password_min_length'
+			]
+		],
+		'password2' => [
+			'rules' => 'required|min_length[3]|matches[password]',
+			'errors' => [
+				'required' => 'Validation.text.password2_required',
+				'min_length' => 'Validation.text.password2_min_length',
+				'matches' => 'Validation.text.password2_matches'
 			]
 		]
 	];

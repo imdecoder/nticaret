@@ -12,10 +12,10 @@
                     <tr>
                         <td>
                             <p>
-                                <?=lang('EmailTemplate.forgot.success.hello')?> <strong>Emin Arif Pirinç</strong>,
+                                <?=lang('EmailTemplate.text.password_change_hello')?> <strong><?=$user->getFullName()?></strong>,
                             </p>
                             <p>
-                                <?=lang('EmailTemplate.forgot.success.content')?>
+                                <?=lang('EmailTemplate.text.password_change_content')?>
                             </p>
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                 <tbody>
@@ -26,7 +26,7 @@
                                                     <tr>
                                                         <td>
                                                             <a href="#" target="_blank">
-                                                                <?=lang('EmailTemplate.forgot.success.button')?>
+                                                                <?=lang('EmailTemplate.text.password_change_button')?>
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -37,7 +37,10 @@
                                 </tbody>
                             </table>
                             <p>
-                                <?=lang('EmailTemplate.forgot.success.thanks')?>
+                                <?=lang('EmailTemplate.text.password_change_content_bottom')?>
+                            </p>
+                            <p>
+                                <?=lang('EmailTemplate.text.password_change_thanks')?>
                             </p>
                         </td>
                     </tr>
