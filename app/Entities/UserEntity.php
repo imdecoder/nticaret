@@ -102,6 +102,16 @@
             return base64_encode($this->attributes['id'] . '.' . $this->attributes['verify_key']);
         }
 
+        public function getPasswordVerify(string $password)
+        {
+            if (password_verify($password, $this->attributes['password']))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public function setGroupID(int $group_id)
         {
             $this->attributes['group_id'] = $group_id;

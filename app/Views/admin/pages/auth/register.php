@@ -20,6 +20,9 @@
                             <?=$this->include('admin/layout/partials/errors')?>
 
                             <form action="<?=base_url(route_to('admin_register'))?>" method="post">
+
+                                <?=csrf_field()?>
+
                                 <div class="row">
                                     <div class="form-group col-6">
                                         <label for="firstname">
@@ -59,6 +62,11 @@
                                         <input type="password" name="password2" class="form-control" id="password2" required>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="6LfpwpMaAAAAAKf6VXxI611IQ8tsKysky7msee15"></div>
+                                </div>
+
                                 <div class="form-group">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" name="contract" class="custom-control-input" id="contract" required>

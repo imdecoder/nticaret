@@ -10,6 +10,11 @@
             'dont_account' => 'Don\'t have an account?',
             'create_account' => 'Create new one',
             'privacy_policy' => 'Privacy Policy',
-            'terms_of_service' => 'Terms of Service'
+            'terms_of_service' => 'Terms of Service',
+            'good_morning' => 'Good Morning',
+            'good_afternoon' => 'Good Afternoon',
+            'good_evening' => 'Good Evening',
+            'good_night' => 'Good Night',
+            'image_location' => 'Bali, Indonesia'
         ]
     ];

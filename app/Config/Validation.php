@@ -109,4 +109,21 @@ class Validation
 			]
 		]
 	];
+
+	public $login = [
+		'email' => [
+			'rules' => 'required|valid_email',
+			'errors' => [
+				'required' => 'Validation.text.email_required',
+				'valid_email' => 'Validation.text.email_valid_email'
+			]
+		],
+		'password' => [
+			'rules' => 'required|min_length[3]',
+			'errors' => [
+				'required' => 'Validation.text.password_required',
+				'min_length' => 'Validation.text.password_min_length'
+			]
+		]
+	];
 }

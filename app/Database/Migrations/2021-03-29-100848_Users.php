@@ -18,7 +18,7 @@ class Users extends Migration
 			'group_id' => [
 				'type' => 'INT',
 				'constraint' => 11,
-				'null' => true
+				'null' => false
 			],
 			'firstname' => [
 				'type' => 'VARCHAR',
@@ -68,7 +68,7 @@ class Users extends Migration
 			]
 		]);
 
-		$this->forge->addKey('id');
+		$this->forge->addKey('id', true);
 		$this->forge->createTable('users');
 	}
 

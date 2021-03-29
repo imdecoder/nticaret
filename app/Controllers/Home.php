@@ -2,19 +2,31 @@
 
 	namespace App\Controllers;
 
-	use App\Models\UserModel;
+	use App\Models\GroupModel;
+	use App\Entities\GroupEntity;
 
 	class Home extends BaseController
 	{
 		public function index()
 		{
-			$model = new UserModel();
-			$users = $model->findAll();
+			$groupModel = new GroupModel();
+			$groupEntity = new GroupEntity();
 
-			foreach ($users as $user)
-			{
-				echo $user->getCreatedAt();
-				echo '<br>';
-			}
+			/*$groupEntity->setSlug('test_slug');
+			$groupEntity->setTitle([
+				'tr' => 'Türkçe Başlık',
+				'en' => 'English Title'
+			]);
+
+			$groupEntity->setPermit([
+				'user_login',
+				'user_listing'
+			]);
+
+			$groupModel->insert($groupEntity);*/
+
+			$group = $groupModel->find(1);
+
+			print_r($group->getTitleLang('en'));
 		}
 	}

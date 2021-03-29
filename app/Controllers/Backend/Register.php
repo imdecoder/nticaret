@@ -9,15 +9,11 @@
 
     class Register extends BaseController
     {
-        protected $validation;
-        protected $session;
         protected $userEntity;
         protected $userModel;
 
         public function __construct()
         {
-            $this->validation = \Config\Services::validation();
-            $this->session = \Config\Services::session();
             $this->userEntity = new UserEntity();
             $this->userModel = new UserModel();
         }
@@ -36,9 +32,7 @@
 
                 if (!$this->validation->run($data, 'register'))
                 {
-                    $this->session->setFlashdata(['errors' => $this->validation->getErrors()]);
-
-                    return redirect()->to(route_to('admin_register'));
+                    return redirect()->back()->with('error', $this->validation->getErrors());
                 }
 
                 $this->userEntity->setFirstname($data['firstname']);
@@ -53,8 +47,7 @@
 
                 if ($this->userModel->errors())
                 {
-                    $this->session->setFlashdata(['errors' => $this->userModel->errors()]);
-                    return redirect()->to(route_to('admin_register'));
+                    return redirect()->back()->with('error', $this->userModel->errors());
                 }
 
                 $email = new EmailTo();
@@ -63,12 +56,10 @@
 
                 if ($to)
                 {
-                    $this->session->setFlashdata(['success' => lang('Success.text.register')]);
-                    return redirect()->to(route_to('admin_register'));
+                    return redirect()->back()->with('success', lang('Success.text.register'));
                 }
 
-                $this->session->setFlashdata(['errors' => lang('Errors.text.email_send_failed')]);
-                return redirect()->to(route_to('admin_register'));
+                return redirect()->back()->with('error', lang('Errors.text.email_send_failed'));
             }
 
             return view('admin/pages/auth/register');

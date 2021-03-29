@@ -25,6 +25,9 @@
                             <?=$this->include('admin/layout/partials/errors')?>
 
                             <form action="<?=base_url(route_to('admin_reset_password'))?>" method="post">
+
+                                <?=csrf_field()?>
+
                                 <div class="form-group">
                                     <label for="password">
                                         <?=lang('Input.text.new_password')?>

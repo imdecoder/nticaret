@@ -20,7 +20,7 @@
                                     <br>
                                     <?=lang('ResetPasswordVerification.text.success_content_2')?>
                                 </p>
-                                <a href="#" class="btn btn-primary mt-4">
+                                <a href="<?=base_url(route_to('admin_login'))?>" class="btn btn-primary mt-4">
                                     <?=lang('ResetPasswordVerification.text.success_button')?>
                                 </a>
                             </div>

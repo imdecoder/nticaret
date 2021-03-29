@@ -18,7 +18,7 @@
                                 <p class="lead">
                                     <?=lang('ForgotVerification.text.success_content')?>
                                 </p>
-                                <a href="#" class="btn btn-primary mt-4">
+                                <a href="<?=base_url(route_to('admin_login'))?>" class="btn btn-primary mt-4">
                                     <?=lang('ForgotVerification.text.success_button')?>
                                 </a>
                             </div>

@@ -1,8 +1,8 @@
-<?php if (session()->has('errors')) : ?>
+<?php if (session()->has('error')) : ?>
 
-    <?php if (is_array(session()->errors)) : ?>
+    <?php if (is_array(session()->error)) : ?>
 
-        <?php foreach (session()->errors as $key => $value) : ?>
+        <?php foreach (session()->error as $key => $value) : ?>
 
             <div class="alert alert-warning alert-dismissible show fade">
                 <div class="alert-body">
@@ -22,7 +22,7 @@
                 <button class="close" data-dismiss="alert">
                     <span>&times;</span>
                 </button>
-                <?=session()->errors?>
+                <?=session()->error?>
             </div>
         </div>
 

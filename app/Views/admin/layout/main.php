@@ -7,6 +7,8 @@
     <title>nTicaret</title>
     <meta name="description" content="Açıklama.">
 
+    <?=csrf_meta()?>
+
     <link rel="shortcut icon" type="image/x-icon" href="<?=base_url('public/admin/img/favicon.png')?>">
 
     <!-- General CSS Files -->
@@ -25,7 +27,26 @@
 <body>
     <div id="app">
 
+        <?php
+
+            if (session()->isLogin)
+            {
+                echo $this->include('admin/layout/partials/navbar');
+                echo $this->include('admin/layout/partials/sidebar');
+            }
+
+        ?>
+
         <?php $this->renderSection('content'); ?>
+
+        <?php
+
+            if (session()->isLogin)
+            {
+                echo $this->include('admin/layout/partials/footer');
+            }
+
+        ?>
 
     </div>
 
@@ -47,6 +68,9 @@
 
     <!-- Page Specific JS File -->
     <?=script_tag('public/admin/js/page/auth-register.js')?>
+
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <?php $this->renderSection('scripts'); ?>
 

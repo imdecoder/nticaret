@@ -14,7 +14,13 @@
                     <p class="text-muted">
                         <?=lang('Login.text.description')?>
                     </p>
+
+                    <?=$this->include('admin/layout/partials/errors')?>
+
                     <form action="<?=base_url(route_to('admin_login'))?>" method="post" class="needs-validation" novalidate>
+
+                        <?=csrf_field()?>
+
                         <div class="form-group">
                             <label for="email">
                                 <?=lang('Input.text.email')?>
@@ -43,6 +49,11 @@
                                 </label>
                             </div>
                         </div>-->
+
+                        <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LfpwpMaAAAAAKf6VXxI611IQ8tsKysky7msee15"></div>
+                        </div>
+
                         <div class="form-group text-right">
                             <a href="<?=base_url(route_to('admin_forgot_password'))?>" class="float-left mt-3">
                                 <?=lang('Login.text.forgot_password')?>
@@ -76,11 +87,38 @@
                 <div class="absolute-bottom-left index-2">
                     <div class="text-light p-5 pb-2">
                         <div class="mb-5 pb-3">
-                            <h1 class="mb-2 display-4 font-weight-bold">
-                                Günaydın
-                            </h1>
+
+                            <?php
+
+                                if ($time->getHour() > 5 && $time->getHour() <= 11)
+                                {
+                                    echo '<h1 class="mb-2 display-4 font-weight-bold">
+                                        ' . lang('Login.text.good_morning') . '
+                                    </h1>';
+                                }
+                                else if ($time->getHour() > 11 && $time->getHour() <= 16)
+                                {
+                                    echo '<h1 class="mb-2 display-4 font-weight-bold">
+                                        ' . lang('Login.text.good_afternoon') . '
+                                    </h1>';
+                                }
+                                else if ($time->getHour() > 16 && $time->getHour() <= 22)
+                                {
+                                    echo '<h1 class="mb-2 display-4 font-weight-bold">
+                                        ' . lang('Login.text.good_evening') . '
+                                    </h1>';
+                                }
+                                else
+                                {
+                                    echo '<h1 class="mb-2 display-4 font-weight-bold">
+                                        ' . lang('Login.text.good_night') . '
+                                    </h1>';
+                                }
+
+                            ?>
+
                             <h5 class="font-weight-normal text-muted-transparent">
-                                Bali, Endonezya
+                                <?=lang('Login.text.image_location')?>
                             </h5>
                         </div>
                         <!--Photo by

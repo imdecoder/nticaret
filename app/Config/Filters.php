@@ -7,6 +7,10 @@ use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 
+use App\Filters\IsLoggedIn;
+use App\Filters\IsPermission;
+use App\Filters\ReCaptcha;
+
 class Filters extends BaseConfig
 {
 	/**
@@ -19,6 +23,9 @@ class Filters extends BaseConfig
 		'csrf'     => CSRF::class,
 		'toolbar'  => DebugToolbar::class,
 		'honeypot' => Honeypot::class,
+		'IsLoggedIn' => IsLoggedIn::class,
+		'IsPermission' => IsPermission::class,
+		'ReCaptcha' => ReCaptcha::class
 	];
 
 	/**
@@ -29,12 +36,12 @@ class Filters extends BaseConfig
 	 */
 	public $globals = [
 		'before' => [
-			// 'honeypot',
-			// 'csrf',
+			'honeypot',
+			'csrf'
 		],
 		'after'  => [
 			'toolbar',
-			// 'honeypot',
+			'honeypot'
 		],
 	];
 
@@ -58,5 +65,23 @@ class Filters extends BaseConfig
 	 *
 	 * @var array
 	 */
-	public $filters = [];
+	public $filters = [
+		'IsLoggedIn' => [
+			'before' => [
+				'*/admin/*'
+			]
+		],
+		'IsPermission' => [
+			'before' => [
+				'*/admin/*'
+			]
+		],
+		'ReCaptcha' => [
+			'before' => [
+				'*/admin/login',
+				'*/admin/register',
+				'*/admin/forgot-password'
+			]
+		]
+	];
 }

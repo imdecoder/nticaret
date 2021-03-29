@@ -30,7 +30,7 @@
                                         <?=lang('AccountVerification.text.why_3')?>
                                     </li>
                                 </ol>
-                                <a href="#" class="btn btn-primary mt-4">
+                                <a href="<?=base_url(route_to('admin_login'))?>" class="btn btn-primary mt-4">
                                     <?=lang('AccountVerification.text.error_go_to_login')?>
                                 </a>
                             </div>

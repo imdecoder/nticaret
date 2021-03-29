@@ -14,7 +14,7 @@
         protected $useSoftDeletes = true;
 
         protected $allowedFields = [
-            //'group_id',
+            'group_id',
             'firstname',
             'lastname',
             'email',
@@ -32,7 +32,7 @@
         protected $deletedField = 'deleted_at';
 
         protected $validationRules = [
-            //'group_id' => 'required|numeric',
+            'group_id' => 'required|numeric',
             'firstname' => 'required|string|min_length[3]',
             'lastname' => 'required|string|min_length[3]',
             'email' => 'required|valid_email|is_unique[users.email]',
@@ -43,10 +43,10 @@
         ];
 
         protected $validationMessages = [
-            /*'group_id' => [
-                'required' => 'User.model.validation.group_id.required',
-                'numeric' => 'User.model.validation.group_id.numeric'
-            ],*/
+            'group_id' => [
+                'required' => 'Validation.text.group_id_required',
+                'numeric' => 'Validation.text.group_id_numeric'
+            ],
             'firstname' => [
                 'required' => 'Validation.text.firstname_required',
                 'string' => 'Validation.text.firstname_string',

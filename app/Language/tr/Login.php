@@ -10,6 +10,11 @@
             'dont_account' => 'Bir hesabın yok mu?',
             'create_account' => 'Hemen kayıt ol',
             'privacy_policy' => 'Gizlilik Politikası',
-            'terms_of_service' => 'Kullanım Şartları'
+            'terms_of_service' => 'Kullanım Şartları',
+            'good_morning' => 'Günaydın',
+            'good_afternoon' => 'Tünaydın',
+            'good_evening' => 'İyi Akşamlar',
+            'good_night' => 'İyi Geceler',
+            'image_location' => 'Bali, Endonezya'
         ]
     ];

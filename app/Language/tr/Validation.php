@@ -23,6 +23,10 @@
             'verify_key_alpha' => 'Doğrulama anahtarı sadece alfabetik karakterlerden oluşmalıdır.',
             'verify_code_numeric' => 'Doğrulama kodu sadece rakamlardan oluşmalıdır.',
             'verify_code_min_length' => 'Doğrulama kodu en az 6 karakterden oluşmalıdır.',
-            'status_required' => 'Kullanıcı durumu zorunlu bir alandır.'
+            'status_required' => 'Kullanıcı durumu zorunlu bir alandır.',
+            'group_slug_required' => 'Grup slug değeri zorunlu bir alandır.',
+            'group_slug_is_unique' => 'Grup slug değeri benzersiz olmalıdır.',
+            'group_title_required' => 'Grup başlığı zorunlu bir alandır.',
+            'group_permissions_required' => 'Grup izinleri zorunlu bir alandır.'
         ]
     ];

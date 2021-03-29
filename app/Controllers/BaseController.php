@@ -28,6 +28,7 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = ['html'];
+	protected $validation;
 
 	/**
 	 * Constructor.
@@ -40,6 +41,8 @@ class BaseController extends Controller
 	{
 		// Do Not Edit This Line
 		parent::initController($request, $response, $logger);
+
+		$this->validation = \Config\Services::validation();
 
 		//--------------------------------------------------------------------
 		// Preload any models, libraries, etc, here.

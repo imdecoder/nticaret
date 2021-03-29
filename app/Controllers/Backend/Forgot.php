@@ -9,16 +9,12 @@
 
     class Forgot extends BaseController
     {
-        protected $validation;
-        protected $session;
         protected $userModel;
         protected $userEntity;
         protected $emailTo;
 
         public function __construct()
         {
-            $this->validation = \Config\Services::validation();
-            $this->session = \Config\Services::session();
             $this->userModel = new UserModel();
             $this->userEntity = new UserEntity();
             $this->emailTo = new EmailTo();
@@ -34,24 +30,21 @@
 
                 if (!$this->validation->run($data, 'forgot'))
                 {
-                    $this->session->setFlashdata(['errors' => $this->validation->getErrors()]);
-                    return redirect()->to(route_to('admin_forgot_password'));
+                    return redirect()->back()->with('error', $this->validation->getErrors());
                 }
 
                 $user = $this->userModel->where('email', $data['email'])->first();
 
                 if (!$user)
                 {
-                    $this->session->setFlashdata(['errors' => lang('Errors.text.user_not_found')]);
-                    return redirect()->to(route_to('admin_forgot_password'));
+                    return redirect()->back()->with('error', lang('Errors.text.user_not_found'));
                 }
 
                 $send = $this->emailTo->settings()->setUser($user)->forgotPassword()->send();
 
                 if (!$send)
                 {
-                    $this->session->setFlashdata(['errors' => lang('Errors.text.email_send_faild')]);
-                    return redirect()->to(route_to('admin_forgot_password'));
+                    return redirect()->back()->with('error', lang('Errors.text.email_send_failed'));
                 }
 
                 return view('admin/pages/verification/forgot-success');
@@ -75,8 +68,7 @@
 
                     if (!$this->validation->run($data, 'resetPassword'))
                     {
-                        $this->session->setFlashdata(['errors' => $this->validation->getErrors()]);
-                        return redirect()->to(route_to('admin_reset_password'));
+                        return redirect()->back()->with('error', $this->validation->getErrors());
                     }
 
                     $this->userEntity->setVerifyKey();
@@ -86,8 +78,7 @@
 
                     if (!$update)
                     {
-                        $this->session->setFlashdata(['errors' => lang('Errors.text.password_update_failed')]);
-                        return redirect()->to(route_to('admin_reset_password'));
+                        return redirect()->back()->with('error', lang('Errors.text.password_update_failed'));
                     }
 
                     $this->session->destroy();

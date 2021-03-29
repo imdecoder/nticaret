@@ -20,12 +20,20 @@
                                 <?=lang('ForgotPassword.text.content')?>
                             </p>
                             <form action="<?=base_url(route_to('admin_forgot_password'))?>" method="post">
+
+                                <?=csrf_field()?>
+
                                 <div class="form-group">
                                     <label for="email">
                                         <?=lang('Input.text.email')?>
                                     </label>
                                     <input type="email" name="email" class="form-control" id="email" tabindex="1" required autofocus>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="g-recaptcha" data-sitekey="6LfpwpMaAAAAAKf6VXxI611IQ8tsKysky7msee15"></div>
+                                </div>
+
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                                         <?=lang('ForgotPassword.text.button')?>
