@@ -149,7 +149,7 @@
             $this->attributes['bio'] = $bio;
         }
 
-        public function setStatus($status = USER_PENDING)
+        public function setStatus($status = STATUS_PENDING)
         {
             $this->attributes['status'] = $status;
         }

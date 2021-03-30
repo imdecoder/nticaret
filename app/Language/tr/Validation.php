@@ -27,6 +27,12 @@
             'group_slug_required' => 'Grup slug değeri zorunlu bir alandır.',
             'group_slug_is_unique' => 'Grup slug değeri benzersiz olmalıdır.',
             'group_title_required' => 'Grup başlığı zorunlu bir alandır.',
-            'group_permissions_required' => 'Grup izinleri zorunlu bir alandır.'
+            'group_permissions_required' => 'Grup izinleri zorunlu bir alandır.',
+            'language_code_required' => 'Dil kodu zorunlu bir alandır.',
+            'language_code_min_length' => 'Dil kodu en az 2 karakterden oluşmalıdır.',
+            'language_code_is_unique' => 'Dil kodu benzersiz olmalıdır.',
+            'language_flag_required' => 'Dil bayrağı gerekli bir alandır.',
+            'language_flag_min_length' => 'Dil bayrağı en az 2 karakterden oluşmalıdır.',
+            'language_title_required' => 'Dil başlığı gerekli bir alandır.'
         ]
     ];

@@ -17,13 +17,12 @@ class Groups extends Migration
 			],
 			'slug' => [
 				'type' => 'VARCHAR',
-				'constraint' => 20,
+				'constraint' => 255,
 				'null' => false,
 				'unique' => true
 			],
 			'title' => [
-				'type' => 'VARCHAR',
-				'constraint' => 255,
+				'type' => 'TEXT',
 				'null' => false
 			],
 			'permissions' => [

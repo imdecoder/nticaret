@@ -2,31 +2,20 @@
 
 	namespace App\Controllers;
 
-	use App\Models\GroupModel;
-	use App\Entities\GroupEntity;
+	use App\Models\LanguageModel;
 
 	class Home extends BaseController
 	{
 		public function index()
 		{
-			$groupModel = new GroupModel();
-			$groupEntity = new GroupEntity();
+			$lang = new LanguageModel();
 
-			/*$groupEntity->setSlug('test_slug');
-			$groupEntity->setTitle([
-				'tr' => 'Türkçe Başlık',
-				'en' => 'English Title'
-			]);
+			$get = $lang->findAll();
 
-			$groupEntity->setPermit([
-				'user_login',
-				'user_listing'
-			]);
-
-			$groupModel->insert($groupEntity);*/
-
-			$group = $groupModel->find(1);
-
-			print_r($group->getTitleLang('en'));
+			foreach ($get as $key => $value)
+			{
+				echo $value->getCreatedAt(true);
+				echo '<br>';
+			}
 		}
 	}

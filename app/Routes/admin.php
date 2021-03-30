@@ -15,4 +15,10 @@
         });
 
         $routes->get('dashboard', 'Backend\Dashboard::index', ['as' => 'admin_dashboard']);
+
+        $routes->group('groups', function ($routes) {
+            $routes->get('list(:any)', 'Backend\Groups::list$1', ['as' => 'admin_group_list']);
+            $routes->match(['get', 'post'], 'add', 'Backend\Groups::add', ['as' => 'admin_group_add']);
+            $routes->match(['get', 'post'], 'edit/(:num)', 'Backend\Groups::edit/$1', ['as' => 'admin_group_edit']);
+        });
     });

@@ -16,7 +16,8 @@
         protected $allowedFields = [
             'slug',
             'title',
-            'permissions'
+            'permissions',
+            'deleted_at'
         ];
 
         protected $useTimestamps = true;
@@ -42,4 +43,22 @@
                 'required' => 'Validation.text.group_permissions_required'
             ]
         ];
+
+        public function getList(string $type = null, string $search = null, int $pager = null)
+        {
+            $model = !is_null($search) ? $this->like('title', $search) : $this;
+            $model = $type == 'trash' ? $model->onlyDeleted() : $model;
+
+            if (is_null($pager))
+            {
+                return [
+                    'groups' => $model->findAll()
+                ];
+            }
+
+            return [
+                'groups' => $model->paginate($pager),
+                'pager' => $model->pager
+            ];
+        }
     }

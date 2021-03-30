@@ -17,6 +17,11 @@
 
     <!-- CSS Libraries -->
     <?=link_tag('public/admin/css/selectric.css')?>
+    <?=link_tag('public/admin/css/daterangepicker.css')?>
+    <?=link_tag('public/admin/css/bootstrap-colorpicker.min.css')?>
+    <?=link_tag('public/admin/css/select2.min.css')?>
+    <?=link_tag('public/admin/css/bootstrap-timepicker.min.css')?>
+    <?=link_tag('public/admin/css/bootstrap-tagsinput.css')?>
 
     <!-- Template CSS -->
     <?=link_tag('public/admin/css/style.css')?>
@@ -61,6 +66,14 @@
     <!-- JS Libraries -->
     <?=script_tag('public/admin/js/jquery.pwstrength.min.js')?>
     <?=script_tag('public/admin/js/jquery.selectric.min.js')?>
+    <?=script_tag('public/admin/js/jquery-ui.min.js')?>
+    <?=script_tag('public/admin/js/cleave.min.js')?>
+    <?=script_tag('public/admin/js/cleave-phone.us.js')?>
+    <?=script_tag('public/admin/js/daterangepicker.js')?>
+    <?=script_tag('public/admin/js/bootstrap-colorpicker.min.js')?>
+    <?=script_tag('public/admin/js/bootstrap-timepicker.min.js')?>
+    <?=script_tag('public/admin/js/bootstrap-tagsinput.min.js')?>
+    <?=script_tag('public/admin/js/select2.full.min.js')?>
 
     <!-- Template JS File -->
     <?=script_tag('public/admin/js/scripts.js')?>
@@ -68,6 +81,7 @@
 
     <!-- Page Specific JS File -->
     <?=script_tag('public/admin/js/page/auth-register.js')?>
+    <?=script_tag('public/admin/js/page/components-table.js')?>
 
     <!-- Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>

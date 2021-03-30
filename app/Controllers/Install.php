@@ -15,7 +15,10 @@
         public function createAdmin()
         {
             $seeder = \Config\Database::seeder();
+
+            $seeder->call('App\Database\Seeds\GroupSeeder');
             $seeder->call('App\Database\Seeds\AdminSeeder');
+            $seeder->call('App\Database\Seeds\LanguageSeeder');
         }
 
         public function createDemo()

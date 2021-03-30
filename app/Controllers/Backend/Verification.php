@@ -33,7 +33,7 @@
             $user = $this->userModel->where([
                 'id' => $userID,
                 'verify_key' => $verifyKey,
-                'status' => USER_PENDING
+                'status' => STATUS_PENDING
             ])->first();
 
             if (!$user)
@@ -41,7 +41,7 @@
                 return view('admin/pages/verification/account-error');
             }
 
-            $this->userEntity->setStatus(USER_ACTIVE);
+            $this->userEntity->setStatus(STATUS_ACTIVE);
             $this->userEntity->setVerifyKey();
 
             $update = $this->userModel->update($userID, $this->userEntity);

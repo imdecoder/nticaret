@@ -5,6 +5,10 @@
         'text' => [
             'error_title' => 'You Have No Permission To Access!',
             'error_content' => 'Since you do not have permission to access this page, you cannot view it.',
-            'error_content_2' => 'If you think this is an error, please contact your administrator.'
+            'error_content_2' => 'If you think this is an error, please contact your administrator.',
+            'admin_login' => 'Authorization to access the administration panel',
+            'groups_list' => 'Authorization to listing groups',
+            'groups_add' => 'Authorization to add new group',
+            'groups_edit' => 'Authorization to edit groups'
         ]
     ];

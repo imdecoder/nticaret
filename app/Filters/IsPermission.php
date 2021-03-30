@@ -17,11 +17,14 @@
                 $segment[3] = isset($segment[3]) ? '_' . $segment[3] : '';
                 $permit = $segment[2] . $segment[3];
 
-                if (array_key_exists($permit, config('settings')->permissions))
+                if (session('userData.group') != DEFAULT_ADMIN_GROUP)
                 {
-                    if (!in_array($permit, session()->permissions))
+                    if (array_key_exists($permit, config('settings')->permissions))
                     {
-                        return redirect()->to(route_to('admin_permission_error'));
+                        if (!in_array($permit, session()->permissions))
+                        {
+                            return redirect()->to(route_to('admin_permission_error'));
+                        }
                     }
                 }
             }

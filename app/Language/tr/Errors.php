@@ -9,6 +9,7 @@
             'user_not_found' => 'Böyle bir kullanıcı bulunamadı.',
             'user_login_pending_failed' => 'Hesabınızı doğrulamanız gerekmektedir. Lütfen e-posta adresinizin gelen kutusunu kontrol edin.',
             'user_login_passive_failed' => 'Hesabınız yönetici tarafından yasaklanmış. Lütfen yönetici ile iletişime geçin.',
-            'recaptcha' => 'Doğrulama işlemini yapın.'
+            'recaptcha' => 'Doğrulama işlemini yapın.',
+            'not_login_permit' => 'Yönetim paneline erişim izniniz bulunmamaktadır.'
         ]
     ];

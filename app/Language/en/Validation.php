@@ -23,6 +23,12 @@
             'verify_key_alpha' => 'Verification key should only contain alphabetic characters.',
             'verify_code_numeric' => 'Verification code should consist of numbers only.',
             'verify_code_min_length' => 'Verification code must be at least 6 characters.',
-            'status_required' => 'User status is a required field.'
+            'status_required' => 'User status is a required field.',
+            'language_code_required' => 'Language code is a required field.',
+            'language_code_min_length' => 'Language code must be at least 2 characters.',
+            'language_code_is_unique' => 'Language code must be unique.',
+            'language_flag_required' => 'Language flag is a required field.',
+            'language_flag_min_length' => 'Language flag must consist of at least 2 characters.',
+            'language_title_required' => 'Language title is a required field.'
         ]
     ];

@@ -5,17 +5,20 @@
     use \App\Controllers\BaseController;
     use App\Entities\UserEntity;
     use App\Models\UserModel;
+    use App\Models\GroupModel;
     use App\Libraries\EmailTo;
 
     class Register extends BaseController
     {
         protected $userEntity;
         protected $userModel;
+        protected $groupModel;
 
         public function __construct()
         {
             $this->userEntity = new UserEntity();
             $this->userModel = new UserModel();
+            $this->groupModel = new GroupModel();
         }
 
         public function index()
@@ -35,12 +38,15 @@
                     return redirect()->back()->with('error', $this->validation->getErrors());
                 }
 
+                $group = $this->groupModel->where('slug', DEFAULT_REGISTER_USER)->first();
+
+                $this->userEntity->setGroupID($group->id);
                 $this->userEntity->setFirstname($data['firstname']);
                 $this->userEntity->setLastname($data['lastname']);
                 $this->userEntity->setEmail($data['email']);
                 $this->userEntity->setVerifyKey();
                 $this->userEntity->setVerifyCode();
-                $this->userEntity->setStatus(USER_PENDING);
+                $this->userEntity->setStatus(STATUS_PENDING);
                 $this->userEntity->setPassword($data['password']);
 
                 $insert = $this->userModel->insert($this->userEntity);

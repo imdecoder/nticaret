@@ -36,12 +36,20 @@ class Filters extends BaseConfig
 	 */
 	public $globals = [
 		'before' => [
-			'honeypot',
+			'honeypot' => [
+				'except' => [
+					'*/admin/*'
+				]
+			],
 			'csrf'
 		],
 		'after'  => [
 			'toolbar',
-			'honeypot'
+			'honeypot' => [
+				'except' => [
+					'*/admin/*'
+				]
+			]
 		],
 	];
 

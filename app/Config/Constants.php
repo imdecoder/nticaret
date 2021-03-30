@@ -67,17 +67,22 @@ defined('DECADE') || define('DECADE', 315360000);
  |       http://tldp.org/LDP/abs/html/exitcodes.html
  |
  */
-defined('EXIT_SUCCESS')        || define('EXIT_SUCCESS', 0); // no errors
-defined('EXIT_ERROR')          || define('EXIT_ERROR', 1); // generic error
-defined('EXIT_CONFIG')         || define('EXIT_CONFIG', 3); // configuration error
-defined('EXIT_UNKNOWN_FILE')   || define('EXIT_UNKNOWN_FILE', 4); // file not found
-defined('EXIT_UNKNOWN_CLASS')  || define('EXIT_UNKNOWN_CLASS', 5); // unknown class
-defined('EXIT_UNKNOWN_METHOD') || define('EXIT_UNKNOWN_METHOD', 6); // unknown class member
-defined('EXIT_USER_INPUT')     || define('EXIT_USER_INPUT', 7); // invalid user input
-defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8); // database error
-defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
-defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+defined('EXIT_SUCCESS')          || define('EXIT_SUCCESS', 0); // no errors
+defined('EXIT_ERROR')            || define('EXIT_ERROR', 1); // generic error
+defined('EXIT_CONFIG')           || define('EXIT_CONFIG', 3); // configuration error
+defined('EXIT_UNKNOWN_FILE')     || define('EXIT_UNKNOWN_FILE', 4); // file not found
+defined('EXIT_UNKNOWN_CLASS')    || define('EXIT_UNKNOWN_CLASS', 5); // unknown class
+defined('EXIT_UNKNOWN_METHOD')   || define('EXIT_UNKNOWN_METHOD', 6); // unknown class member
+defined('EXIT_USER_INPUT')       || define('EXIT_USER_INPUT', 7); // invalid user input
+defined('EXIT_DATABASE')         || define('EXIT_DATABASE', 8); // database error
+defined('EXIT__AUTO_MIN')        || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
+defined('EXIT__AUTO_MAX')        || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-defined('USER_ACTIVE')         || define('USER_ACTIVE', 'ACTIVE');
-defined('USER_PASSIVE')        || define('USER_PASSIVE', 'PASSIVE');
-defined('USER_PENDING')        || define('USER_PENDING', 'PENDING');
+defined('STATUS_ACTIVE')         || define('STATUS_ACTIVE', 'ACTIVE');
+defined('STATUS_PASSIVE')        || define('STATUS_PASSIVE', 'PASSIVE');
+defined('STATUS_PENDING')        || define('STATUS_PENDING', 'PENDING');
+defined('STATUS_DRAFT')          || define('STATUS_DRAFT', 'DRAFT');
+
+defined('DEFAULT_ADMIN_GROUP')   || define('DEFAULT_ADMIN_GROUP', 'admin');
+defined('DEFAULT_REGISTER_USER') || define('DEFAULT_REGISTER_USER', 'user');
+defined('LOGIN_PERMIT_KEY')      || define('LOGIN_PERMIT_KEY', 'admin_login');
