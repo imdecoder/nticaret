@@ -37,7 +37,7 @@ class Security extends BaseConfig
 	 *
 	 * @var string
 	 */
-	 public $cookieName = 'csrf_cookie_name';
+	 public $cookieName = 'nt_cookie';
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -61,7 +61,7 @@ class Security extends BaseConfig
 	 *
 	 * @var boolean
 	 */
-	public $regenerate = true;
+	public $regenerate = false;
 
 	/**
 	 * --------------------------------------------------------------------------

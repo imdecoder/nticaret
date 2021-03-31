@@ -22,18 +22,36 @@
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                    <i class="fas fa-user"></i>
+                    <span>Kullanıcı Yönetimi</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="<?=base_url(route_to('admin_user_list', null))?>" class="nav-link">
+                            Kullanıcı Listesi
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            Yeni Kullanıcı Ekle
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-users"></i>
-                    <span>Grup Yönetimi</span>
+                    <span><?=lang('Sidebar.text.group_management')?></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="<?=base_url(route_to('admin_group_list', null))?>" class="nav-link">
-                            Grup Listesi
+                            <?=lang('Sidebar.text.group_list')?>
                         </a>
                     </li>
                     <li>
                         <a href="<?=base_url(route_to('admin_group_add'))?>" class="nav-link">
-                            Yeni Grup Ekle
+                            <?=lang('Sidebar.text.add_new_group')?>
                         </a>
                     </li>
                 </ul>

@@ -22,12 +22,14 @@
     <?=link_tag('public/admin/css/select2.min.css')?>
     <?=link_tag('public/admin/css/bootstrap-timepicker.min.css')?>
     <?=link_tag('public/admin/css/bootstrap-tagsinput.css')?>
+    <?=link_tag('public/admin/css/iziToast.min.css')?>
 
     <!-- Template CSS -->
     <?=link_tag('public/admin/css/style.css')?>
     <?=link_tag('public/admin/css/components.css')?>
 
     <?php $this->renderSection('styles'); ?>
+
 </head>
 <body>
     <div id="app">
@@ -63,6 +65,14 @@
     <?=script_tag('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js')?>
     <?=script_tag('public/admin/js/stisla.js')?>
 
+    <script>
+        let hardDelete = {
+            title: '<?=lang('General.text.are_you_sure')?>',
+            text: '<?=lang('General.text.hard_delete_text')?>',
+            buttons: ['<?=lang('General.text.cancel')?>', '<?=lang('General.text.yes')?>']
+        }
+    </script>
+
     <!-- JS Libraries -->
     <?=script_tag('public/admin/js/jquery.pwstrength.min.js')?>
     <?=script_tag('public/admin/js/jquery.selectric.min.js')?>
@@ -74,17 +84,23 @@
     <?=script_tag('public/admin/js/bootstrap-timepicker.min.js')?>
     <?=script_tag('public/admin/js/bootstrap-tagsinput.min.js')?>
     <?=script_tag('public/admin/js/select2.full.min.js')?>
+    <?=script_tag('public/admin/js/iziToast.min.js')?>
+    <?=script_tag('public/admin/js/sweetalert.min.js')?>
 
     <!-- Template JS File -->
     <?=script_tag('public/admin/js/scripts.js')?>
     <?=script_tag('public/admin/js/custom.js')?>
+    <?=script_tag('public/admin/js/request.js')?>
+
+    <!-- Extra JS File -->
+    <?=script_tag('public/admin/js/extra/list.js')?>
 
     <!-- Page Specific JS File -->
     <?=script_tag('public/admin/js/page/auth-register.js')?>
     <?=script_tag('public/admin/js/page/components-table.js')?>
 
     <!-- Google reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <?=script_tag('https://www.google.com/recaptcha/api.js')?>
 
     <?php $this->renderSection('scripts'); ?>
 

@@ -18,6 +18,10 @@
             'admin_login' => 'Permissions.text.admin_login',
             'groups_list' => 'Permissions.text.groups_list',
             'groups_add' => 'Permissions.text.groups_add',
-            'group_edit' => 'Permissions.text.groups_edit'
+            'groups_edit' => 'Permissions.text.groups_edit',
+            'groups_delete' => 'Permissions.text.groups_delete',
+            'groups_restore' => 'Permissions.text.groups_restore',
+            'groups_hard_delete' => 'Permissions.text.groups_hard_delete',
+            'users_list' => 'Permissions.text.users_list'
         ];
     }

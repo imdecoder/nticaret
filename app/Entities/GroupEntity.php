@@ -7,6 +7,7 @@
 
     class GroupEntity extends Entity
     {
+        protected $id;
         protected $slug;
         protected $title;
         protected $permissions;
@@ -64,6 +65,11 @@
             return $this->attributes['deleted_at'];
         }
 
+        public function setID(int $id)
+        {
+            $this->attributes['id'] = $id;
+        }
+
         public function setSlug($title)
         {
             $defaultLang = config('app')->defaultLocale;
@@ -85,8 +91,9 @@
             $this->attributes['title'] = json_encode($title, JSON_UNESCAPED_UNICODE);
         }
 
-        public function setPermit(array $permissions)
+        public function setPermit($permissions = null)
         {
+            $permissions = !is_null($permissions) ? array_keys($permissions) : [];
             $this->attributes['permissions'] = json_encode($permissions, JSON_UNESCAPED_UNICODE);
         }
 

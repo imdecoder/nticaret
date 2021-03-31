@@ -20,5 +20,12 @@
             $routes->get('list(:any)', 'Backend\Groups::list$1', ['as' => 'admin_group_list']);
             $routes->match(['get', 'post'], 'add', 'Backend\Groups::add', ['as' => 'admin_group_add']);
             $routes->match(['get', 'post'], 'edit/(:num)', 'Backend\Groups::edit/$1', ['as' => 'admin_group_edit']);
+            $routes->post('delete', 'Backend\Groups::delete', ['as' => 'admin_group_delete']);
+            $routes->post('restore', 'Backend\Groups::restore', ['as' => 'admin_group_restore']);
+            $routes->post('hard-delete', 'Backend\Groups::hardDelete', ['as' => 'admin_group_hard_delete']);
+        });
+
+        $routes->group('users', function ($routes) {
+            $routes->get('list(:any)', 'Backend\Users::list$1', ['as' => 'admin_user_list']);
         });
     });

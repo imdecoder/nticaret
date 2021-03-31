@@ -338,7 +338,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $CSRFTokenName = 'csrf_test_name';
+	public $CSRFTokenName = 'nt_token';
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -364,7 +364,7 @@ class App extends BaseConfig
 	 *
 	 * @var string
 	 */
-	public $CSRFCookieName = 'csrf_cookie_name';
+	public $CSRFCookieName = 'nt_cookie';
 
 	/**
 	 * --------------------------------------------------------------------------
@@ -390,7 +390,7 @@ class App extends BaseConfig
 	 *
 	 * @var boolean
 	 */
-	public $CSRFRegenerate = true;
+	public $CSRFRegenerate = false;
 
 	/**
 	 * --------------------------------------------------------------------------

@@ -10,6 +10,11 @@
             'user_login_pending_failed' => 'Hesabınızı doğrulamanız gerekmektedir. Lütfen e-posta adresinizin gelen kutusunu kontrol edin.',
             'user_login_passive_failed' => 'Hesabınız yönetici tarafından yasaklanmış. Lütfen yönetici ile iletişime geçin.',
             'recaptcha' => 'Doğrulama işlemini yapın.',
-            'not_login_permit' => 'Yönetim paneline erişim izniniz bulunmamaktadır.'
+            'not_login_permit' => 'Yönetim paneline erişim izniniz bulunmamaktadır.',
+            'delete_error' => 'Silme işlemi sırasında bir hata oluştu.',
+            'delete_admin_group_error' => 'Yönetici grubunu silemezsiniz.',
+            'restore_error' => 'Geri alma işlemi sırasında bir hata oluştu.',
+            'delete_group_with_user' => 'Gruba bağlı kullanıcılar olduğu için grubu silemezsiniz.',
+            'hard_delete_error' => 'Kalıcı olarak silme işlemi sırasında bir hata oluştu.'
         ]
     ];

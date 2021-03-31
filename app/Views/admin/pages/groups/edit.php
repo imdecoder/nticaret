@@ -7,7 +7,7 @@
         <section class="section">
             <div class="section-header">
                 <h1>
-                    "<?=$group->getTitle()?>" Grubunu Düzenle
+                    "<?=$group->getTitle()?>" <?=lang('Groups.text.edit_group')?>
                 </h1>
             </div>
             <div class="section-body">
@@ -52,7 +52,7 @@
                                         aria-labelledby="<?=$lang->getCode()?>-tab">
                                         <div class="form-group">
                                             <label for="title">
-                                                <?=$lang->getTitle()?> Grup Adı
+                                                <?=$lang->getTitle()?> <?=lang('Groups.text.group_name')?>
                                             </label>
                                             <input type="text"
                                                 name="title[<?=$lang->getCode()?>]"
@@ -68,7 +68,7 @@
                                 <?php endforeach; ?>
 
                                 <div class="section-title mt-0">
-                                    Grup İzinleri
+                                    <?=lang('Groups.text.group_permissions')?>
                                 </div>
                                 <ul class="list-group">
 
@@ -95,7 +95,7 @@
                         </div>
                         <div class="card-footer text-right">
                             <button type="submit" class="btn btn-lg btn-block btn-success">
-                                Değişikleri Kaydet
+                                <?=lang('General.text.save_changes')?>
                             </button>
                         </div>
                     </form>

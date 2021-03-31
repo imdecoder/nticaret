@@ -26,7 +26,7 @@
         protected $deletedField = 'deleted_at';
 
         protected $validationRules = [
-            'slug' => 'required|is_unique[groups.slug]',
+            'slug' => 'required|is_unique[groups.slug, id, {id}]',
             'title' => 'required',
             'permissions' => 'required'
         ];

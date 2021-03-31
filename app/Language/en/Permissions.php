@@ -9,6 +9,10 @@
             'admin_login' => 'Authorization to access the administration panel',
             'groups_list' => 'Authorization to listing groups',
             'groups_add' => 'Authorization to add new group',
-            'groups_edit' => 'Authorization to edit groups'
+            'groups_edit' => 'Authorization to edit groups',
+            'groups_delete' => 'Authorization to delete groups',
+            'groups_restore' => 'Authorization to restore deleted groups',
+            'groups_hard_delete' => 'Authorization to permanently delete groups',
+            'users_list' => 'Authorization to list users'
         ]
     ];

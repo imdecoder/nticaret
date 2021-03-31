@@ -9,6 +9,10 @@
             'admin_login' => 'Yönetim paneline erişim yetkisi',
             'groups_list' => 'Grupları listeleme yetkisi',
             'groups_add' => 'Yeni grup ekleme yetkisi',
-            'groups_edit' => 'Grupları düzenleme yetkisi'
+            'groups_edit' => 'Grupları düzenleme yetkisi',
+            'groups_delete' => 'Grupları silme yetkisi',
+            'groups_restore' => 'Silinmiş grupları geri getirme yetkisi',
+            'groups_hard_delete' => 'Grupları kalıcı olarak silme yetkisi',
+            'users_list' => 'Kullanıcıları listeleme yetkisi'
         ]
     ];
