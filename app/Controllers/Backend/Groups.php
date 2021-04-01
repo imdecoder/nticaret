@@ -86,61 +86,26 @@
             if ($this->request->isAJAX())
             {
                 $data = $this->request->getPost('data');
+                $data = !is_array($data) ? [$data] : $data;
 
-                if (is_array($data))
+                $adminGroup = $this->groupModel->whereIn('id', $data)->where('slug', DEFAULT_ADMIN_GROUP)->first();
+
+                if ($adminGroup)
                 {
-                    $adminGroup = $this->groupModel->where('slug', DEFAULT_ADMIN_GROUP)->first();
-
-                    if (in_array($adminGroup->id, $data))
-                    {
-                        return $this->response->setJSON([
-                            'status' => false,
-                            'message' => lang('Errors.text.delete_admin_group_error')
-                        ]);
-                    }
-
-                    $status = false;
-
-                    foreach ($data as $key => $value)
-                    {
-                        $isUser = $this->userModel->where('group_id', $value)->first();
-
-                        if ($isUser)
-                        {
-                            $status = true;
-                            break;
-                        }
-                    }
-
-                    if ($status)
-                    {
-                        return $this->response->setJSON([
-                            'status' => false,
-                            'message' => lang('Errors.text.delete_group_with_user')
-                        ]);
-                    }
+                    return $this->response->setJSON([
+                        'status' => false,
+                        'message' => lang('Errors.text.delete_admin_group_error')
+                    ]);
                 }
-                else
+
+                $userList = $this->userModel->whereIn('group_id', $data)->first();
+
+                if ($userList)
                 {
-                    $group = $this->groupModel->find($data);
-
-                    if ($group->getSlug() == DEFAULT_ADMIN_GROUP)
-                    {
-                        return $this->response->setJSON([
-                            'status' => false,
-                            'message' => lang('Errors.text.delete_admin_group_error')
-                        ]);
-                    }
-
-                    $isUser = $this->userModel->where('group_id', $data)->first();
-
-                    if ($isUser)
-                    {
-                        return $this->response->setJSON([
-                            'status' => false,
-                            'message' => lang('Errors.text.delete_group_with_user')
-                        ]);
-                    }
+                    return $this->response->setJSON([
+                        'status' => false,
+                        'message' => lang('Errors.text.delete_group_with_user')
+                    ]);
                 }
 
                 $delete = $this->groupModel->delete($data);

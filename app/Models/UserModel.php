@@ -77,4 +77,45 @@
                 'required' => 'Validation.text.status_required'
             ]
         ];
+
+        public function getList(string $status = null, string $search = null, array $dateFilter = null, int $perPage = 20)
+        {
+            $builder = $this->setTable($this->table);
+            $builder = $builder->select('users.*, groups.title');
+
+            $builder = $status == 'trash' ? $builder->onlyDeleted() : $builder;
+            $builder = $status == strtolower(STATUS_ACTIVE) ? $builder->where('users.status', STATUS_ACTIVE) : $builder;
+            $builder = $status == strtolower(STATUS_PENDING) ? $builder->where('users.status', STATUS_PENDING) : $builder;
+            $builder = $status == strtolower(STATUS_PASSIVE) ? $builder->where('users.status', STATUS_PASSIVE) : $builder;
+
+            if (!is_null($search))
+            {
+                $builder = $builder->groupStart();
+                $builder = $builder->like('users.firstname', $search);
+                $builder = $builder->orLike('users.lastname', $search);
+                $builder = $builder->orLike('users.email', $search);
+                $builder = $builder->groupEnd();
+            }
+
+            if (!is_null($dateFilter))
+            {
+                $dateStart = str_replace('/', '-', $dateFilter[0]);
+                $dateStart = date('Y-m-d', strtotime($dateStart));
+
+                $dateEnd = str_replace('/', '-', $dateFilter[1]);
+                $dateEnd = date('Y-m-d', strtotime($dateEnd));
+
+                $builder = $builder->groupStart();
+                $builder = $builder->where('users.created_at >', $dateStart);
+                $builder = $builder->where('users.created_at <', $dateEnd);
+                $builder = $builder->groupEnd();
+            }
+
+            $builder = $builder->join('groups', 'groups.id = users.group_id');
+
+            return [
+                'users' => $builder->paginate($perPage),
+                'pager' => $builder->pager
+            ];
+        }
     }

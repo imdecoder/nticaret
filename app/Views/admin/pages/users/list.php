@@ -1,5 +1,11 @@
 <?php $this->extend('admin/layout/main'); ?>
 
+<?php
+
+    $segment = service('request')->uri->getSegment(5);
+
+?>
+
 <?php $this->section('content'); ?>
 
     <!-- Main Content -->
@@ -11,8 +17,8 @@
                 </h1>
     			<div class="section-header-breadcrumb">
                     <div class="section-header-button">
-        				<a href="features-post-create.html" class="btn btn-primary">
-                            Add New
+        				<a href="<?=base_url(route_to('admin_user_add'))?>" class="btn btn-primary">
+                            Yeni Kullanıcı Ekle
                         </a>
         			</div>
     			</div>
@@ -24,28 +30,28 @@
     						<div class="card-body">
     							<ul class="nav nav-pills">
     								<li class="nav-item">
-    									<a href="#" class="nav-link active">
-                                            Tümü <span class="badge badge-white">5</span>
+    									<a href="<?=base_url(route_to('admin_user_list', null))?>" class="nav-link <?=empty($segment) ? 'active' : null?>">
+                                            Tümü <span class="badge badge-<?=empty($segment) ? 'white' : 'primary'?>">0</span>
                                         </a>
     								</li>
     								<li class="nav-item">
-    									<a href="#" class="nav-link">
-                                            Aktif <span class="badge badge-primary">1</span>
+    									<a href="<?=base_url(route_to('admin_user_list', '/active'))?>" class="nav-link <?=$segment == 'active' ? 'active' : null?>">
+                                            Aktif <span class="badge badge-<?=$segment == 'active' ? 'white' : 'primary'?>">0</span>
                                         </a>
     								</li>
     								<li class="nav-item">
-    									<a href="#" class="nav-link">
-                                            Beklemede <span class="badge badge-primary">1</span>
+    									<a href="<?=base_url(route_to('admin_user_list', '/pending'))?>" class="nav-link <?=$segment == 'pending' ? 'active' : null?>">
+                                            Beklemede <span class="badge badge-<?=$segment == 'pending' ? 'white' : 'primary'?>">0</span>
                                         </a>
     								</li>
     								<li class="nav-item">
-    									<a href="#" class="nav-link">
-                                            Pasif <span class="badge badge-primary">0</span>
+    									<a href="<?=base_url(route_to('admin_user_list', '/passive'))?>" class="nav-link <?=$segment == 'passive' ? 'active' : null?>">
+                                            Pasif <span class="badge badge-<?=$segment == 'passive' ? 'white' : 'primary'?>">0</span>
                                         </a>
     								</li>
                                     <li class="nav-item">
-    									<a href="#" class="nav-link">
-                                            Çöp Kutusu <span class="badge badge-primary">0</span>
+    									<a href="<?=base_url(route_to('admin_user_list', '/trash'))?>" class="nav-link <?=$segment == 'trash' ? 'active' : null?>">
+                                            Çöp Kutusu <span class="badge badge-<?=$segment == 'trash' ? 'white' : 'primary'?>">0</span>
                                         </a>
     								</li>
     							</ul>
@@ -57,42 +63,97 @@
     				<div class="col-12">
     					<div class="card">
     						<div class="card-body">
-    							<div class="float-left">
-                                    <div class="dropdown d-inline mr-2">
-                                        <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <?=lang('General.text.action')?>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a href="javascript:void(0)" class="dropdown-item all-delete" data-url="">
-                                                Sil
-                                            </a>
-                                            <a href="javascript:void(0)" class="dropdown-item all-delete" data-url="">
-                                                Aktif Yap
-                                            </a>
-                                            <a href="javascript:void(0)" class="dropdown-item all-delete" data-url="">
-                                                Pasif Yap
-                                            </a>
-                                            <a href="javascript:void(0)" class="dropdown-item all-delete" data-url="">
-                                                Beklemede Yap
-                                            </a>
-                                        </div>
-                                    </div>
-    							</div>
-    							<div class="float-right">
-    								<form action="<?=current_url()?>" method="get">
-    									<div class="input-group">
-    										<input type="text" name="search" placeholder="<?=lang('General.text.search')?>" class="form-control">
-    										<div class="input-group-append">
-    											<button class="btn btn-primary">
-                                                    <i class="fas fa-search"></i>
+                                <form action="<?=current_url()?>" method="get">
+        							<div class="float-left">
+                                        <div class="row">
+                                            <div class="dropdown d-inline mr-3">
+                                                <button type="button" class="btn btn-lg btn-primary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <?=lang('General.text.action')?>
                                                 </button>
-    										</div>
-    									</div>
-    								</form>
-    							</div>
+                                                <div class="dropdown-menu">
+
+                                                    <?php if ($segment != 'trash') : ?>
+
+                                                        <a href="javascript:void(0)" class="dropdown-item all-delete" data-url="<?=base_url(route_to('admin_user_delete'))?>">
+                                                            Sil
+                                                        </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item all-active" data-url="">
+                                                            Aktif Yap
+                                                        </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item all-passive" data-url="">
+                                                            Pasif Yap
+                                                        </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item all-pending" data-url="">
+                                                            Beklemede Yap
+                                                        </a>
+
+                                                    <?php else: ?>
+
+                                                        <a href="javascript:void(0)" class="dropdown-item all-restore" data-url="<?=base_url(route_to('admin_user_restore'))?>">
+                                                            Geri Al
+                                                        </a>
+                                                        <a href="javascript:void(0)" class="dropdown-item all-hard-delete" data-url="<?=base_url(route_to('admin_user_hard_delete'))?>">
+                                                            Kalıcı Olarak Sil
+                                                        </a>
+
+                                                    <?php endif; ?>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <select name="per_page" class="form-control">
+                                                    <option value="">
+                                                        Veri sayısı
+                                                    </option>
+                                                    <option value="10">
+                                                        10
+                                                    </option>
+                                                    <option value="20">
+                                                        20
+                                                    </option>
+                                                    <option value="50">
+                                                        50
+                                                    </option>
+                                                    <option value="100">
+                                                        100
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+        							</div>
+        							<div class="float-right">
+    									<div class="row">
+                                            <div class="col">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="fas fa-calendar"></i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="date_filter" value="<?=$date_filter?>" placeholder="Tarihe göre filtrele" class="form-control daterange-cus">
+                                                    <div class="input-group-append">
+            											<button type="button" class="btn btn-danger">
+                                                            <i class="fas fa-times clear_date_filter"></i>
+                                                        </button>
+            										</div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="input-group">
+                                                    <input type="text" name="search" value="<?=$search?>" placeholder="<?=lang('General.text.search')?>" class="form-control">
+            										<div class="input-group-append">
+            											<button type="submit" class="btn btn-primary">
+                                                            <i class="fas fa-search"></i>
+                                                        </button>
+            										</div>
+                                                </div>
+        									</div>
+                                        </div>
+        							</div>
+                                </form>
     							<div class="clearfix mb-3"></div>
     							<div class="table-responsive">
-    								<table class="table table-striped">
+    								<table class="table table-striped custom-table">
     									<tr>
     										<th class="pt-2">
     											<div class="custom-checkbox custom-checkbox-table custom-control">
@@ -105,6 +166,9 @@
                                             </th>
     										<th>
                                                 E-posta
+                                            </th>
+                                            <th>
+                                                Grup
                                             </th>
     										<th>
                                                 Eklenme Tarihi
@@ -125,26 +189,43 @@
         										</td>
         										<td>
         											<?=$user->getFullName()?>
-        											<div class="table-links">
-                                                        <a href="#">
-                                                            Profil
-                                                        </a>
-        												<div class="bullet"></div>
-        												<a href="#">
-                                                            Düzenle
-                                                        </a>
-        												<div class="bullet"></div>
-                                                        <a href="javascript:void(0)" class="change-status">
-                                                            D. Değiştir
-                                                        </a>
-        												<div class="bullet"></div>
-        												<a href="javascript:void(0)" class="text-danger delete">
-                                                            Sil
-                                                        </a>
-        											</div>
+
+                                                    <?php if ($segment == 'trash') : ?>
+
+                                                        <div class="table-links">
+                                                            <a href="javascript:void(0)" class="text-success restore" data-url="<?=base_url(route_to('admin_user_restore'))?>">
+                                                                Geri Al
+                                                            </a>
+            												<div class="bullet"></div>
+            												<a href="javascript:void(0)" class="text-danger hard-delete" data-url="<?=base_url(route_to('admin_user_hard_delete'))?>">
+                                                                Kalıcı Olarak Sil
+                                                            </a>
+            											</div>
+
+                                                    <?php else: ?>
+
+                                                        <div class="table-links">
+            												<a href="#">
+                                                                Düzenle
+                                                            </a>
+            												<div class="bullet"></div>
+                                                            <a href="javascript:void(0)" class="change-status">
+                                                                D. Değiştir
+                                                            </a>
+            												<div class="bullet"></div>
+            												<a href="javascript:void(0)" class="text-danger delete" data-url="<?=base_url(route_to('admin_user_delete'))?>">
+                                                                Sil
+                                                            </a>
+            											</div>
+
+                                                    <?php endif; ?>
+
         										</td>
         										<td>
         											<?=$user->getEmail()?>
+        										</td>
+                                                <td>
+        											<?=nt_lang_data($user->title)?>
         										</td>
         										<td>
                                                     <?=$user->getCreatedAt()?>
@@ -190,5 +271,14 @@
     		</div>
     	</section>
     </div>
+
+<?php $this->endSection(); ?>
+
+<?php $this->section('scripts'); ?>
+
+    <script>
+        $('input[name=date_filter]').val('<?=$date_filter?>');
+        $('select[name=per_page]').val('<?=$per_page?>');
+    </script>
 
 <?php $this->endSection(); ?>

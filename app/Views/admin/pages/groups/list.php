@@ -67,7 +67,7 @@
                                 <div class="input-group">
                                     <input type="text" name="search" placeholder="<?=lang('General.text.search')?>" class="form-control">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary">
                                             <i class="fas fa-search"></i>
                                         </button>
                                     </div>

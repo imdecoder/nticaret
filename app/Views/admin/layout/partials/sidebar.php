@@ -32,7 +32,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link">
+                        <a href="<?=base_url(route_to('admin_user_add'))?>" class="nav-link">
                             Yeni Kullanıcı Ekle
                         </a>
                     </li>

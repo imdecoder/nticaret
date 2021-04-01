@@ -7,6 +7,14 @@
         return $model->where('status', STATUS_ACTIVE)->findAll();
     }
 
+    function nt_lang_data($str, $lang = null)
+    {
+        $obj = json_decode($str);
+        $locale = !is_null($lang) ? $lang : service('request')->getLocale();
+
+        return $obj->$locale;
+    }
+
     function permalink($str, $options = array())
     {
         $str = mb_convert_encoding((string)$str, 'UTF-8', mb_list_encodings());

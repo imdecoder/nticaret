@@ -27,5 +27,9 @@
 
         $routes->group('users', function ($routes) {
             $routes->get('list(:any)', 'Backend\Users::list$1', ['as' => 'admin_user_list']);
+            $routes->match(['get', 'post'], 'add', 'Backend\Users::add', ['as' => 'admin_user_add']);
+            $routes->post('delete', 'Backend\Users::delete', ['as' => 'admin_user_delete']);
+            $routes->post('restore', 'Backend\Users::restore', ['as' => 'admin_user_restore']);
+            $routes->post('hard-delete', 'Backend\Users::hardDelete', ['as' => 'admin_user_hard_delete']);
         });
     });

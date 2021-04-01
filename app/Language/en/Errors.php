@@ -15,6 +15,7 @@
             'delete_admin_group_error' => 'You cannot delete the admin group.',
             'restore_error' => 'An error occurred during the restore process.',
             'delete_group_with_user' => 'You cannot delete the group because there are users connected to the group.',
-            'hard_delete_error' => 'An error occurred while permanently deleting.'
+            'hard_delete_error' => 'An error occurred while permanently deleting.',
+            'delete_admin_user_error' => 'You cannot delete users connected to the admin group.'
         ]
     ];

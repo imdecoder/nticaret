@@ -13,6 +13,10 @@
             'groups_delete' => 'Grupları silme yetkisi',
             'groups_restore' => 'Silinmiş grupları geri getirme yetkisi',
             'groups_hard_delete' => 'Grupları kalıcı olarak silme yetkisi',
-            'users_list' => 'Kullanıcıları listeleme yetkisi'
+            'users_list' => 'Kullanıcıları listeleme yetkisi',
+            'users_add' => 'Yeni kullanıcı ekleme yetkisi',
+            'users_delete' => 'Kullanıcıları silme yetkisi',
+            'users_restore' => 'Silinmiş kullanıcıları geri getirme yetkisi',
+            'users_hard_delete' => 'Kullanıcıları kalıcı olarak silme yetkisi'
         ]
     ];

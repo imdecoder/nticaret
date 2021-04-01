@@ -88,34 +88,31 @@
                     <div class="text-light p-5 pb-2">
                         <div class="mb-5 pb-3">
 
-                            <?php
+                            <?php if ($time->getHour() > 5 && $time->getHour() <= 11) : ?>
 
-                                if ($time->getHour() > 5 && $time->getHour() <= 11)
-                                {
-                                    echo '<h1 class="mb-2 display-4 font-weight-bold">
-                                        ' . lang('Login.text.good_morning') . '
-                                    </h1>';
-                                }
-                                else if ($time->getHour() > 11 && $time->getHour() <= 16)
-                                {
-                                    echo '<h1 class="mb-2 display-4 font-weight-bold">
-                                        ' . lang('Login.text.good_afternoon') . '
-                                    </h1>';
-                                }
-                                else if ($time->getHour() > 16 && $time->getHour() <= 22)
-                                {
-                                    echo '<h1 class="mb-2 display-4 font-weight-bold">
-                                        ' . lang('Login.text.good_evening') . '
-                                    </h1>';
-                                }
-                                else
-                                {
-                                    echo '<h1 class="mb-2 display-4 font-weight-bold">
-                                        ' . lang('Login.text.good_night') . '
-                                    </h1>';
-                                }
+                                <h1 class="mb-2 display-4 font-weight-bold">
+                                    <?=lang('Login.text.good_morning')?>
+                                </h1>
 
-                            ?>
+                            <?php elseif ($time->getHour() > 11 && $time->getHour() <= 16) : ?>
+
+                                <h1 class="mb-2 display-4 font-weight-bold">
+                                    <?=lang('Login.text.good_afternoon')?>
+                                </h1>
+
+                            <?php elseif ($time->getHour() > 16 && $time->getHour() <= 22) : ?>
+
+                                <h1 class="mb-2 display-4 font-weight-bold">
+                                    <?=lang('Login.text.good_evening')?>
+                                </h1>
+
+                            <?php else: ?>
+
+                                <h1 class="mb-2 display-4 font-weight-bold">
+                                    <?=lang('Login.text.good_night')?>
+                                </h1>
+
+                            <?php endif; ?>
 
                             <h5 class="font-weight-normal text-muted-transparent">
                                 <?=lang('Login.text.image_location')?>

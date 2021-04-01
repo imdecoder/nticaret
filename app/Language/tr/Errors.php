@@ -15,6 +15,7 @@
             'delete_admin_group_error' => 'Yönetici grubunu silemezsiniz.',
             'restore_error' => 'Geri alma işlemi sırasında bir hata oluştu.',
             'delete_group_with_user' => 'Gruba bağlı kullanıcılar olduğu için grubu silemezsiniz.',
-            'hard_delete_error' => 'Kalıcı olarak silme işlemi sırasında bir hata oluştu.'
+            'hard_delete_error' => 'Kalıcı olarak silme işlemi sırasında bir hata oluştu.',
+            'delete_admin_user_error' => 'Yönetici grubuna bağlı kullanıcıları silemezsiniz.'
         ]
     ];

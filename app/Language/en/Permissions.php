@@ -13,6 +13,10 @@
             'groups_delete' => 'Authorization to delete groups',
             'groups_restore' => 'Authorization to restore deleted groups',
             'groups_hard_delete' => 'Authorization to permanently delete groups',
-            'users_list' => 'Authorization to list users'
+            'users_list' => 'Authorization to list users',
+            'users_add' => 'Authorization to add new user',
+            'users_delete' => 'Authorization to delete users',
+            'users_restore' => 'Authorization to restore deleted users',
+            'users_hard_delete' => 'Authorization to permanently delete users'
         ]
     ];

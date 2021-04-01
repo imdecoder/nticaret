@@ -22,6 +22,10 @@
             'groups_delete' => 'Permissions.text.groups_delete',
             'groups_restore' => 'Permissions.text.groups_restore',
             'groups_hard_delete' => 'Permissions.text.groups_hard_delete',
-            'users_list' => 'Permissions.text.users_list'
+            'users_list' => 'Permissions.text.users_list',
+            'users_add' => 'Permissions.text.users_add',
+            'users_delete' => 'Permissions.text.users_delete',
+            'users_restore' => 'Permissions.text.users_restore',
+            'users_hard_delete' => 'Permissions.text.users_hard_delete'
         ];
     }

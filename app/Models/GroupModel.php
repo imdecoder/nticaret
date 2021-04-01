@@ -44,12 +44,12 @@
             ]
         ];
 
-        public function getList(string $type = null, string $search = null, int $pager = null)
+        public function getList(string $type = null, string $search = null, int $perPage = null)
         {
             $model = !is_null($search) ? $this->like('title', $search) : $this;
             $model = $type == 'trash' ? $model->onlyDeleted() : $model;
 
-            if (is_null($pager))
+            if (is_null($perPage))
             {
                 return [
                     'groups' => $model->findAll()
@@ -57,7 +57,7 @@
             }
 
             return [
-                'groups' => $model->paginate($pager),
+                'groups' => $model->paginate($perPage),
                 'pager' => $model->pager
             ];
         }
