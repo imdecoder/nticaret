@@ -8,6 +8,7 @@
             'edited' => 'The changes have been successfully saved.',
             'deleted' => 'The deletion was successful.',
             'restored' => 'The restore has been done successfully.',
-            'hard_deleted' => 'The permanent deletion was successful.'
+            'hard_deleted' => 'The permanent deletion was successful.',
+            'status_changed' => 'The status change has been done successfully.'
         ]
     ];

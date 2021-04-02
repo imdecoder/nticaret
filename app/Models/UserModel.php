@@ -35,7 +35,7 @@
             'group_id' => 'required|numeric',
             'firstname' => 'required|string|min_length[3]',
             'lastname' => 'required|string|min_length[3]',
-            'email' => 'required|valid_email|is_unique[users.email]',
+            'email' => 'required|valid_email|is_unique[users.email, id, {id}]',
             'password' => 'required',
             'verify_key' => 'required|alpha',
             'verify_code' => 'numeric|min_length[6]',
@@ -78,7 +78,7 @@
             ]
         ];
 
-        public function getList(string $status = null, string $search = null, array $dateFilter = null, int $perPage = 20)
+        public function getList(string $status = null, string $search = null, array $dateFilter = null, int $perPage = 20, int $group = null)
         {
             $builder = $this->setTable($this->table);
             $builder = $builder->select('users.*, groups.title');
@@ -87,6 +87,8 @@
             $builder = $status == strtolower(STATUS_ACTIVE) ? $builder->where('users.status', STATUS_ACTIVE) : $builder;
             $builder = $status == strtolower(STATUS_PENDING) ? $builder->where('users.status', STATUS_PENDING) : $builder;
             $builder = $status == strtolower(STATUS_PASSIVE) ? $builder->where('users.status', STATUS_PASSIVE) : $builder;
+
+            $builder = !is_null($group) ? $builder->where('users.group_id', $group) : $builder;
 
             if (!is_null($search))
             {

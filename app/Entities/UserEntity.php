@@ -112,6 +112,11 @@
             return false;
         }
 
+        public function setID(int $id)
+        {
+            $this->attributes['id'] = $id;
+        }
+
         public function setGroupID(int $group_id)
         {
             $this->attributes['group_id'] = $group_id;

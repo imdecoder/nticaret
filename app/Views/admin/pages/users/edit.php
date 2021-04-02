@@ -7,7 +7,7 @@
         <section class="section">
             <div class="section-header">
                 <h1>
-                    <?=lang('Users.text.add_new_user')?>
+                    "<?=$user->getFullName()?>" <?=lang('Users.text.edit_user')?>
                 </h1>
             </div>
             <div class="section-body">
@@ -24,38 +24,38 @@
                                 <label for="firstname">
                                     <?=lang('Input.text.firstname')?>
                                 </label>
-                                <input type="text" name="firstname" class="form-control" id="firstname" required>
+                                <input type="text" name="firstname" value="<?=$user->getFirstname()?>" class="form-control" id="firstname" required>
                             </div>
                             <div class="form-group">
                                 <label for="lastname">
                                     <?=lang('Input.text.lastname')?>
                                 </label>
-                                <input type="text" name="lastname" class="form-control" id="lastname" required>
+                                <input type="text" name="lastname" value="<?=$user->getLastname()?>" class="form-control" id="lastname" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">
                                     <?=lang('Input.text.email')?>
                                 </label>
-                                <input type="email" name="email" class="form-control" id="email" required>
+                                <input type="email" name="email" value="<?=$user->getEmail()?>" class="form-control" id="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="password">
                                     <?=lang('Input.text.password')?>
                                 </label>
-                                <input type="password" name="password" class="form-control" id="password" required>
+                                <input type="password" name="password" class="form-control" id="password">
                             </div>
                             <div class="form-group">
                                 <label for="status">
                                     <?=lang('Input.text.status_select')?>
                                 </label>
                                 <select name="status" class="form-control select2" id="status" required>
-                                    <option value="<?=STATUS_ACTIVE?>" selected>
+                                    <option value="<?=STATUS_ACTIVE?>" <?=$user->getStatus() == STATUS_ACTIVE ? 'selected' : null?>>
                                         <?=lang('General.text.active')?>
                                     </option>
-                                    <option value="<?=STATUS_PASSIVE?>">
+                                    <option value="<?=STATUS_PASSIVE?>" <?=$user->getStatus() == STATUS_PASSIVE ? 'selected' : null?>>
                                         <?=lang('General.text.passive')?>
                                     </option>
-                                    <option value="<?=STATUS_PENDING?>">
+                                    <option value="<?=STATUS_PENDING?>" <?=$user->getStatus() == STATUS_PENDING ? 'selected' : null?>>
                                         <?=lang('General.text.pending')?>
                                     </option>
                                 </select>
@@ -68,7 +68,7 @@
 
                                     <?php foreach ($groups as $group) : ?>
 
-                                        <option value="<?=$group->id?>">
+                                        <option value="<?=$group->id?>" <?=$user->getGroupID() == $group->id ? 'selected' : null?>>
                                             <?=$group->getTitle()?>
                                         </option>
 
@@ -80,7 +80,7 @@
                                 <label for="bio">
                                     <?=lang('Input.text.bio')?>
                                 </label>
-                                <textarea name="bio" class="form-control" id="bio" style="min-height: 150px"></textarea>
+                                <textarea name="bio" class="form-control" id="bio" style="min-height: 150px"><?=$user->getBio()?></textarea>
                             </div>
                         </div>
                         <div class="card-footer text-right">

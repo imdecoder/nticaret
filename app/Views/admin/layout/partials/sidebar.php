@@ -23,17 +23,17 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-user"></i>
-                    <span>Kullanıcı Yönetimi</span>
+                    <span><?=lang('Sidebar.text.user_management')?></span>
                 </a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="<?=base_url(route_to('admin_user_list', null))?>" class="nav-link">
-                            Kullanıcı Listesi
+                            <?=lang('Sidebar.text.user_list')?>
                         </a>
                     </li>
                     <li>
                         <a href="<?=base_url(route_to('admin_user_add'))?>" class="nav-link">
-                            Yeni Kullanıcı Ekle
+                            <?=lang('Sidebar.text.add_new_user')?>
                         </a>
                     </li>
                 </ul>

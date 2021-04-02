@@ -9,6 +9,11 @@
             'email' => 'Email',
             'password' => 'Password',
             'password2' => 'Confirm Password',
-            'new_password' => 'New Password'
+            'new_password' => 'New Password',
+            'group_select' => 'Select Group',
+            'bio' => 'Biography',
+            'group' => 'Group',
+            'status' => 'Status',
+            'status_select' => 'Select Status'
         ]
     ];

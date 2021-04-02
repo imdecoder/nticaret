@@ -15,6 +15,8 @@
             'groups_hard_delete' => 'Authorization to permanently delete groups',
             'users_list' => 'Authorization to list users',
             'users_add' => 'Authorization to add new user',
+            'users_edit' => 'Authorization to edit users',
+            'users_status' => 'Authorization to change the user status',
             'users_delete' => 'Authorization to delete users',
             'users_restore' => 'Authorization to restore deleted users',
             'users_hard_delete' => 'Authorization to permanently delete users'

@@ -1,3 +1,18 @@
+$('.status-change').click(function () {
+    let id = $(this).closest('tr').data('id');
+    let url = $(this).data('url');
+    let status = $(this).attr('data-status');
+
+    nt_request.post(url, {data: id, status: status}, function (response) {
+        if (response.status) {
+            let container = $('.custom-table').find('[data-id="' + id + '"]');
+
+            container.find('.badge-status').hide();
+            container.find('.badge-status-' + status.toLowerCase()).show();
+        }
+    });
+});
+
 $('.delete').click(function () {
     let id = $(this).closest('tr').data('id');
     let url = $(this).data('url');
@@ -34,6 +49,26 @@ $('.hard-delete').click(function () {
                 if (response.status) {
                     $('tr[data-id=' + id + ']').remove();
                 }
+            });
+        }
+    });
+});
+
+$('.all-status-change').click(function () {
+    let url = $(this).data('url');
+    let status = $(this).data('status');
+
+    let list = $('.custom-table input:checkbox:checked').map(function () {
+        return $(this).data('id');
+    }).get();
+
+    nt_request.post(url, {data: list, status: status}, function (response) {
+        if (response.status) {
+            $.each(list, function (index, item) {
+                let container = $('.custom-table').find('[data-id="' + item + '"]');
+
+                container.find('.badge-status').hide();
+                container.find('.badge-status-' + status.toLowerCase()).show();
             });
         }
     });

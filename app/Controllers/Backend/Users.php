@@ -31,13 +31,17 @@
             $perPage = $this->request->getGet('per_page');
             $perPage = !empty($perPage) ? $perPage : 20;
 
+            $group = $this->request->getGet('group');
+            $group = !empty($group) ? $group : null;
+
             $data = [
                 'date_filter' => $getDateFilter,
                 'search' => $search,
-                'per_page' => $perPage
+                'per_page' => $perPage,
+                'groups' => $this->groupModel->findAll()
             ];
 
-            $getModel = $this->userModel->getList($status, $search, $dateFilter, $perPage);
+            $getModel = $this->userModel->getList($status, $search, $dateFilter, $perPage, $group);
 
             $data = array_merge($data, $getModel);
 
@@ -52,6 +56,7 @@
                 $lastname = $this->request->getPost('lastname');
                 $email = $this->request->getPost('email');
                 $password = $this->request->getPost('password');
+                $status = $this->request->getPost('status');
                 $group_id = $this->request->getPost('group_id');
                 $bio = $this->request->getPost('bio');
 
@@ -59,9 +64,9 @@
                 $this->userEntity->setLastname($lastname);
                 $this->userEntity->setEmail($email);
                 $this->userEntity->setPassword($password);
+                $this->userEntity->setStatus($status);
                 $this->userEntity->setGroupID($group_id);
                 $this->userEntity->setBio($bio);
-                $this->userEntity->setStatus(STATUS_ACTIVE);
                 $this->userEntity->setVerifyKey();
                 $this->userEntity->setVerifyCode();
 
@@ -75,9 +80,84 @@
                 return redirect()->back()->with('success', lang('Success.text.added'));
             }
 
-            $data = ['groups' => $this->groupModel->findAll()];
+            $data = [
+                'groups' => $this->groupModel->findAll()
+            ];
 
             return view('admin/pages/users/add', $data);
+        }
+
+        public function edit(int $id)
+        {
+            if ($this->request->getMethod() == 'post')
+            {
+                $firstname = $this->request->getPost('firstname');
+                $lastname = $this->request->getPost('lastname');
+                $email = $this->request->getPost('email');
+                $password = $this->request->getPost('password');
+                $status = $this->request->getPost('status');
+                $group_id = $this->request->getPost('group_id');
+                $bio = $this->request->getPost('bio');
+
+                $this->userEntity->setID($id);
+                $this->userEntity->setFirstname($firstname);
+                $this->userEntity->setLastname($lastname);
+                $this->userEntity->setEmail($email);
+
+                if (!empty($password))
+                {
+                    $this->userEntity->setPassword($password);
+                }
+
+                $this->userEntity->setStatus($status);
+                $this->userEntity->setGroupID($group_id);
+                $this->userEntity->setBio($bio);
+
+                $this->userModel->update($id, $this->userEntity);
+
+                if ($this->userModel->errors())
+                {
+                    return redirect()->back()->with('error', $this->userModel->errors());
+                }
+
+                return redirect()->back()->with('success', lang('Success.text.edited'));
+            }
+
+            $data = [
+                'groups' => $this->groupModel->findAll(),
+                'user' => $this->userModel->find($id)
+            ];
+
+            return view('admin/pages/users/edit', $data);
+        }
+
+        public function status()
+        {
+            if ($this->request->isAJAX())
+            {
+                $data = $this->request->getPost('data');
+                $status = $this->request->getPost('status');
+
+                $update = $this->userModel->update($data, ['status' => $status]);
+
+                if (!$update)
+                {
+                    return $this->response->setJSON([
+                        'status' => false,
+                        'message' => lang('Errors.text.status_error')
+                    ]);
+                }
+
+                return $this->response->setJSON([
+                    'status' => true,
+                    'message' => lang('Success.text.status_changed')
+                ]);
+            }
+
+            return $this->response->setJSON([
+                'status' => false,
+                'message' => lang('Errors.text.status_error')
+            ]);
         }
 
         public function delete()

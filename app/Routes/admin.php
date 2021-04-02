@@ -28,6 +28,8 @@
         $routes->group('users', function ($routes) {
             $routes->get('list(:any)', 'Backend\Users::list$1', ['as' => 'admin_user_list']);
             $routes->match(['get', 'post'], 'add', 'Backend\Users::add', ['as' => 'admin_user_add']);
+            $routes->match(['get', 'post'], 'edit/(:num)', 'Backend\Users::edit/$1', ['as' => 'admin_user_edit']);
+            $routes->post('status', 'Backend\Users::status', ['as' => 'admin_user_status']);
             $routes->post('delete', 'Backend\Users::delete', ['as' => 'admin_user_delete']);
             $routes->post('restore', 'Backend\Users::restore', ['as' => 'admin_user_restore']);
             $routes->post('hard-delete', 'Backend\Users::hardDelete', ['as' => 'admin_user_hard_delete']);

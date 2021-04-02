@@ -16,6 +16,7 @@
             'restore_error' => 'An error occurred during the restore process.',
             'delete_group_with_user' => 'You cannot delete the group because there are users connected to the group.',
             'hard_delete_error' => 'An error occurred while permanently deleting.',
-            'delete_admin_user_error' => 'You cannot delete users connected to the admin group.'
+            'delete_admin_user_error' => 'You cannot delete users connected to the admin group.',
+            'status_error' => 'An error has occurred during the status change process.'
         ]
     ];

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="<?=service('request')->getLocale()?>">
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
@@ -27,6 +27,7 @@
     <!-- Template CSS -->
     <?=link_tag('public/admin/css/style.css')?>
     <?=link_tag('public/admin/css/components.css')?>
+    <?=link_tag('public/admin/css/custom.css')?>
 
     <?php $this->renderSection('styles'); ?>
 
