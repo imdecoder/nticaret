@@ -9,4 +9,24 @@
     content: none;
 }
 
+.single-image-picker-modal {
+    width: 90% !important;
+    max-width: 100% !important;
+}
+
+.single-image-picker-modal-body {
+    overflow-x: auto;
+    height: 500px;
+}
+
+.multiple-image-picker-modal {
+    width: 90% !important;
+    max-width: 100% !important;
+}
+
+.multiple-image-picker-modal-body {
+    overflow-x: auto;
+    height: 500px;
+}
+
 /*# sourceMappingURL=custom.css.map */

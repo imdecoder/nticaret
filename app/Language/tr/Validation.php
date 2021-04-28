@@ -33,6 +33,14 @@
             'language_code_is_unique' => 'Dil kodu benzersiz olmalıdır.',
             'language_flag_required' => 'Dil bayrağı gerekli bir alandır.',
             'language_flag_min_length' => 'Dil bayrağı en az 2 karakterden oluşmalıdır.',
-            'language_title_required' => 'Dil başlığı gerekli bir alandır.'
+            'language_title_required' => 'Dil başlığı gerekli bir alandır.',
+            'image_name_required' => 'Resim adı zorunlu bir alandır.',
+            'image_slug_required' => 'Resim slug değeri zorunlu bir alandır.',
+            'image_url_required' => 'Resim URL\'si zorunlu bir alandır.',
+            'image_type_required' => 'Resim türü zorunlu bir alandır.',
+            'image_size_required' => 'Resim boyutu zorunlu bir alandır.',
+            'image_upload_input_name' => 'Resim yükleme gerekli şartları sağlamıyor.',
+            'image_upload_mime_in' => 'Resim uzantısı sadece PNG, JPG ve JPEG olabilir.',
+            'image_upload_max_size' => 'Yüklemek istediğiniz resim boyutu çok büyük.'
         ]
     ];

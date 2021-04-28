@@ -41,7 +41,11 @@ class Filters extends BaseConfig
 					'*/admin/*'
 				]
 			],
-			'csrf'
+			'csrf' => [
+				'except' => [
+					'*/admin/images/upload'
+				]
+			]
 		],
 		'after'  => [
 			'toolbar',

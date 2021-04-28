@@ -86,3 +86,5 @@ defined('STATUS_DRAFT')          || define('STATUS_DRAFT', 'DRAFT');
 defined('DEFAULT_ADMIN_GROUP')   || define('DEFAULT_ADMIN_GROUP', 'admin');
 defined('DEFAULT_REGISTER_USER') || define('DEFAULT_REGISTER_USER', 'user');
 defined('LOGIN_PERMIT_KEY')      || define('LOGIN_PERMIT_KEY', 'admin_login');
+
+defined('UPLOAD_FOLDER_PATH')    || define('UPLOAD_FOLDER_PATH', 'public/uploads/');

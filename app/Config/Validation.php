@@ -126,4 +126,15 @@ class Validation
 			]
 		]
 	];
+
+	public $imageUpload = [
+		'file' => [
+			'rules' => 'uploaded[file]|mime_in[file,image/png,image/jpg,image/jpeg]|max_size[file,100240]',
+			'errors' => [
+				'uploaded' => 'Validation.text.image_upload_input_name',
+				'mime_in' => 'Validation.text.image_upload_mime_in',
+				'max_size' => 'Validation.text.image_upload_max_size'
+			]
+		]
+	];
 }

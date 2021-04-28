@@ -19,6 +19,8 @@
             'users_status' => 'Authorization to change the user status',
             'users_delete' => 'Authorization to delete users',
             'users_restore' => 'Authorization to restore deleted users',
-            'users_hard_delete' => 'Authorization to permanently delete users'
+            'users_hard_delete' => 'Authorization to permanently delete users',
+            'images_modal' => 'Authorization to use image selector',
+            'images_upload' => 'Authorization to image upload'
         ]
     ];

@@ -23,6 +23,9 @@
     <?=link_tag('public/admin/css/bootstrap-timepicker.min.css')?>
     <?=link_tag('public/admin/css/bootstrap-tagsinput.css')?>
     <?=link_tag('public/admin/css/iziToast.min.css')?>
+    <?=link_tag('public/admin/css/prism.css')?>
+    <?=link_tag('public/admin/css/dropzone-basic.css')?>
+    <?=link_tag('public/admin/css/dropzone.css')?>
 
     <!-- Template CSS -->
     <?=link_tag('public/admin/css/style.css')?>
@@ -72,6 +75,17 @@
             text: '<?=lang('General.text.hard_delete_text')?>',
             buttons: ['<?=lang('General.text.cancel')?>', '<?=lang('General.text.yes')?>']
         }
+
+        let imagePickerModal = {
+            buttonText: {
+                single: '<?=lang('Image.text.single_modal_button_title')?>',
+                multiple: '<?=lang('Image.text.multiple_modal_button_title')?>'
+            },
+            title: {
+                single: '<?=lang('Image.text.single_modal_title')?>',
+                multiple: '<?=lang('Image.text.multiple_modal_title')?>'
+            }
+        }
     </script>
 
     <!-- JS Libraries -->
@@ -87,14 +101,14 @@
     <?=script_tag('public/admin/js/select2.full.min.js')?>
     <?=script_tag('public/admin/js/iziToast.min.js')?>
     <?=script_tag('public/admin/js/sweetalert.min.js')?>
+    <?=script_tag('public/admin/js/prism.js')?>
+    <?=script_tag('public/admin/js/dropzone.js')?>
+    <?=script_tag('public/admin/js/dropzone-amd-module.js')?>
 
     <!-- Template JS File -->
     <?=script_tag('public/admin/js/scripts.js')?>
     <?=script_tag('public/admin/js/custom.js')?>
     <?=script_tag('public/admin/js/request.js')?>
-
-    <!-- Extra JS File -->
-    <?=script_tag('public/admin/js/extra/list.js')?>
 
     <!-- Page Specific JS File -->
     <?=script_tag('public/admin/js/page/auth-register.js')?>
@@ -102,6 +116,10 @@
 
     <!-- Google reCAPTCHA -->
     <?=script_tag('https://www.google.com/recaptcha/api.js')?>
+
+    <!-- Extra JS File -->
+    <?=script_tag('public/admin/js/extra/list.js')?>
+    <?=script_tag('public/admin/js/extra/image-picker.js')?>
 
     <?php $this->renderSection('scripts'); ?>
 

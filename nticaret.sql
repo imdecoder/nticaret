@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 02 Nis 2021, 16:41:15
+-- Üretim Zamanı: 28 Nis 2021, 16:29:45
 -- Sunucu sürümü: 10.4.17-MariaDB
 -- PHP Sürümü: 7.2.34
 
@@ -46,6 +46,23 @@ INSERT INTO `groups` (`id`, `slug`, `title`, `permissions`, `created_at`, `updat
 (2, 'user', '{\"tr\":\"Kullanıcı\",\"en\":\"User\"}', '[]', '2021-03-30 11:02:18', '2021-04-01 16:01:42', NULL),
 (3, 'moderator', '{\"tr\":\"Moderatör\",\"en\":\"Moderator\"}', '[\"admin_login\",\"groups_list\",\"users_list\"]', '2021-03-30 17:06:55', '2021-03-31 16:48:07', NULL),
 (6, 'editor', '{\"tr\":\"Editör\",\"en\":\"Editor\"}', '[\"admin_login\"]', '2021-03-31 14:26:30', '2021-04-01 15:39:48', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `images`
+--
+
+CREATE TABLE `images` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `size` int(11) NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -95,7 +112,8 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
 (1, '2021-03-29-100848', 'App\\Database\\Migrations\\Users', 'default', 'App', 1617090256, 1),
 (2, '2021-03-29-142836', 'App\\Database\\Migrations\\Groups', 'default', 'App', 1617090256, 1),
-(3, '2021-03-30-073757', 'App\\Database\\Migrations\\Languages', 'default', 'App', 1617090257, 1);
+(3, '2021-03-30-073757', 'App\\Database\\Migrations\\Languages', 'default', 'App', 1617090257, 1),
+(5, '2021-04-05-064141', 'App\\Database\\Migrations\\Images', 'default', 'App', 1619607106, 2);
 
 -- --------------------------------------------------------
 
@@ -238,6 +256,12 @@ ALTER TABLE `groups`
   ADD UNIQUE KEY `slug` (`slug`);
 
 --
+-- Tablo için indeksler `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `languages`
 --
 ALTER TABLE `languages`
@@ -268,6 +292,12 @@ ALTER TABLE `groups`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- Tablo için AUTO_INCREMENT değeri `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `languages`
 --
 ALTER TABLE `languages`
@@ -277,7 +307,7 @@ ALTER TABLE `languages`
 -- Tablo için AUTO_INCREMENT değeri `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `users`

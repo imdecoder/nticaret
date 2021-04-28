@@ -24,11 +24,23 @@
             'verify_code_numeric' => 'Verification code should consist of numbers only.',
             'verify_code_min_length' => 'Verification code must be at least 6 characters.',
             'status_required' => 'User status is a required field.',
+            'group_slug_required' => 'Group slug value is a required field.',
+            'group_slug_is_unique' => 'Group slug value must be unique.',
+            'group_title_required' => 'Group title is a required field.',
+            'group_permissions_required' => 'Group permissions are a required field.',
             'language_code_required' => 'Language code is a required field.',
             'language_code_min_length' => 'Language code must be at least 2 characters.',
             'language_code_is_unique' => 'Language code must be unique.',
             'language_flag_required' => 'Language flag is a required field.',
             'language_flag_min_length' => 'Language flag must consist of at least 2 characters.',
-            'language_title_required' => 'Language title is a required field.'
+            'language_title_required' => 'Language title is a required field.',
+            'image_name_required' => 'Image name is a required field.',
+            'image_slug_required' => 'Image slug value is a required field.',
+            'image_url_required' => 'Image URL is a required field.',
+            'image_type_required' => 'Image type is a required field.',
+            'image_size_required' => 'Image size is a required field.',
+            'image_upload_input_name' => 'Image upload does not meet the required requirements.',
+            'image_upload_mime_in' => 'Image extension can only be PNG, JPG and JPEG.',
+            'image_upload_max_size' => 'The image size you want to upload is too large.'
         ]
     ];

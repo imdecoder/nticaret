@@ -15,6 +15,34 @@
         return $obj->$locale;
     }
 
+    function nt_single_image_picker(string $src, string $inputName, string $inputID, int $width = 180)
+    {
+        return '<input type="hidden" name="' . $inputName . '" id="' . $inputID . '">
+        <button class="btn single-image-picker"
+            data-url="' . base_url(route_to('admin_image_single_modal')) . '"
+            data-src="' . $src . '"
+            data-input="' . $inputID . '">
+            <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-128.png"
+                id="' . $src . '"
+                style="width: ' . $width . 'px">
+        </button>';
+    }
+
+    function nt_multiple_image_picker(string $title, string $inputName, string $areaID, string $btnClass = 'btn-primary')
+    {
+        return '<button class="btn ' . $btnClass . ' multiple-image-picker"
+            data-url="' . base_url(route_to('admin_image_multiple_modal')) . '"
+            data-input="' . $inputName . '"
+            data-area="' . $areaID . '">
+            ' . $title . '
+        </button>';
+    }
+
+    function nt_multiple_image_area(string $areaID)
+    {
+        return '<div id="' . $areaID . '" class="row gutters-sm"></div>';
+    }
+
     function permalink($str, $options = array())
     {
         $str = mb_convert_encoding((string)$str, 'UTF-8', mb_list_encodings());

@@ -34,4 +34,10 @@
             $routes->post('restore', 'Backend\Users::restore', ['as' => 'admin_user_restore']);
             $routes->post('hard-delete', 'Backend\Users::hardDelete', ['as' => 'admin_user_hard_delete']);
         });
+
+        $routes->group('images', function ($routes) {
+            $routes->get('modal/single', 'Backend\Images::singleImagePickerModal', ['as' => 'admin_image_single_modal']);
+            $routes->get('modal/multiple', 'Backend\Images::multipleImagePickerModal', ['as' => 'admin_image_multiple_modal']);
+            $routes->post('upload', 'Backend\Images::upload', ['as' => 'admin_image_upload']);
+        });
     });

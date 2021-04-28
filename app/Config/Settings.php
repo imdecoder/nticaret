@@ -14,8 +14,6 @@
             'verification'
         ];
 
-        public $perPageList = [5, 10, 20, 40, 80, 100, 250, 500];
-
         public $permissions = [
             'admin_login' => 'Permissions.text.admin_login',
             'groups_list' => 'Permissions.text.groups_list',
@@ -30,6 +28,25 @@
             'users_status' => 'Permissions.text.users_status',
             'users_delete' => 'Permissions.text.users_delete',
             'users_restore' => 'Permissions.text.users_restore',
-            'users_hard_delete' => 'Permissions.text.users_hard_delete'
+            'users_hard_delete' => 'Permissions.text.users_hard_delete',
+            'images_modal' => 'Permissions.text.images_modal',
+            'images_upload' => 'Permissions.text.images_upload'
+        ];
+
+        public $perPageList = [5, 10, 20, 40, 80, 100, 250, 500];
+
+        public $thumbnail = ['187x134'];
+
+        public $imageCompress = 70;
+
+        public $watermark = [
+            'status' => true,
+            'text' => 'localhost.com',
+            'color' => '#ffffff',
+            'opacity' => 0,
+            'withShadow' => true,
+            'fontSize' => 500,
+            'hAlign' => 'center',
+            'vAlign' => 'bottom'
         ];
     }

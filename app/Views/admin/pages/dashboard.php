@@ -10,6 +10,16 @@
             </div>
             <div class="section-body">
 
+                <?=nt_single_image_picker('blog-image', 'image', 'blog-image-id')?>
+
+                <hr>
+
+                <?=nt_multiple_image_picker('Resim Seç', 'images', 'images-list', 'btn-danger')?>
+
+                <hr>
+
+                <?=nt_multiple_image_area('images-list')?>
+
             </div>
         </section>
     </div>
