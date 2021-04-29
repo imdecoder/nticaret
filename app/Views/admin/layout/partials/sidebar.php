@@ -56,6 +56,29 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                    <i class="fas fa-image"></i>
+                    <span>Medya Yönetimi</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="<?=base_url(route_to('admin_image_list'))?>" class="nav-link">
+                            Resimler
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            Videolar
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link">
+                            Dosyalar
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
         <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
             <a href="#" class="btn btn-primary btn-lg btn-block btn-icon-split">

@@ -21,6 +21,7 @@
             'users_restore' => 'Silinmiş kullanıcıları geri getirme yetkisi',
             'users_hard_delete' => 'Kullanıcıları kalıcı olarak silme yetkisi',
             'images_modal' => 'Resim seçici kullanma yetkisi',
-            'images_upload' => 'Resim yükleme yetkisi'
+            'images_upload' => 'Resim yükleme yetkisi',
+            'images_list' => 'Resimleri listeleme yetkisi'
         ]
     ];

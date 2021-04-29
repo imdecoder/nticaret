@@ -39,5 +39,6 @@
             $routes->get('modal/single', 'Backend\Images::singleImagePickerModal', ['as' => 'admin_image_single_modal']);
             $routes->get('modal/multiple', 'Backend\Images::multipleImagePickerModal', ['as' => 'admin_image_multiple_modal']);
             $routes->post('upload', 'Backend\Images::upload', ['as' => 'admin_image_upload']);
+            $routes->get('list', 'Backend\Images::list', ['as' => 'admin_image_list']);
         });
     });

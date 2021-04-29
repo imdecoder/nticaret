@@ -30,7 +30,8 @@
             'users_restore' => 'Permissions.text.users_restore',
             'users_hard_delete' => 'Permissions.text.users_hard_delete',
             'images_modal' => 'Permissions.text.images_modal',
-            'images_upload' => 'Permissions.text.images_upload'
+            'images_upload' => 'Permissions.text.images_upload',
+            'images_list' => 'Permissions.text.images_list'
         ];
 
         public $perPageList = [5, 10, 20, 40, 80, 100, 250, 500];

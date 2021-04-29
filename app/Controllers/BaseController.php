@@ -27,7 +27,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ['html', 'nt'];
+	protected $helpers = ['html', 'nt', 'text'];
 	protected $validation;
 
 	/**

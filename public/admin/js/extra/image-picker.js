@@ -75,7 +75,7 @@ $('.multiple-image-picker').fireModal({
             let input = '';
 
             $.each(idList, function (index, item) {
-                input = input + '<div class="col-6 col-sm-3">' +
+                input = input + '<div class="col-6 col-sm-2">' +
                         '<label class="mb-4">' +
                             '<input type="hidden" name="' + inputName + '[]" value="' + item + '">' +
                             '<img src="' + srcList[index] + '" class="imagecheck-image">' +

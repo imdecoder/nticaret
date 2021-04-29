@@ -21,6 +21,7 @@
             'users_restore' => 'Authorization to restore deleted users',
             'users_hard_delete' => 'Authorization to permanently delete users',
             'images_modal' => 'Authorization to use image selector',
-            'images_upload' => 'Authorization to image upload'
+            'images_upload' => 'Authorization to image upload',
+            'images_list' => 'Authorization to list images'
         ]
     ];

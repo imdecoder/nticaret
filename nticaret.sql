@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 28 Nis 2021, 16:29:45
+-- Üretim Zamanı: 29 Nis 2021, 16:50:01
 -- Sunucu sürümü: 10.4.17-MariaDB
 -- PHP Sürümü: 7.2.34
 
@@ -63,6 +63,20 @@ CREATE TABLE `images` (
   `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Tablo döküm verisi `images`
+--
+
+INSERT INTO `images` (`id`, `name`, `slug`, `url`, `type`, `size`, `created_at`, `updated_at`) VALUES
+(1, 'Desert.jpg', 'Desert', 'public/uploads/Desert.jpg', 'jpg', 845941, '2021-04-29 12:02:23', '2021-04-29 12:02:23'),
+(2, 'Jellyfish.jpg', 'Jellyfish', 'public/uploads/Jellyfish.jpg', 'jpg', 775702, '2021-04-29 12:02:25', '2021-04-29 12:02:25'),
+(3, 'Lighthouse.jpg', 'Lighthouse', 'public/uploads/Lighthouse.jpg', 'jpg', 561276, '2021-04-29 12:02:26', '2021-04-29 12:02:26'),
+(4, 'Koala.jpg', 'Koala', 'public/uploads/Koala.jpg', 'jpg', 780831, '2021-04-29 12:02:26', '2021-04-29 12:02:26'),
+(5, 'Chrysanthemum.jpg', 'Chrysanthemum', 'public/uploads/Chrysanthemum.jpg', 'jpg', 879394, '2021-04-29 12:02:27', '2021-04-29 12:02:27'),
+(6, 'Tulips.jpg', 'Tulips', 'public/uploads/Tulips.jpg', 'jpg', 620888, '2021-04-29 12:02:27', '2021-04-29 12:02:27'),
+(7, 'Hydrangeas.jpg', 'Hydrangeas', 'public/uploads/Hydrangeas.jpg', 'jpg', 595284, '2021-04-29 12:02:28', '2021-04-29 12:02:28'),
+(8, 'Penguins.jpg', 'Penguins', 'public/uploads/Penguins.jpg', 'jpg', 777835, '2021-04-29 12:02:28', '2021-04-29 12:02:28');
 
 -- --------------------------------------------------------
 
@@ -295,7 +309,7 @@ ALTER TABLE `groups`
 -- Tablo için AUTO_INCREMENT değeri `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `languages`

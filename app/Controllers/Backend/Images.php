@@ -17,14 +17,23 @@
             $this->imageEntity = new ImageEntity();
         }
 
+        public function list()
+        {
+            return view('admin/pages/images/list');
+        }
+
         public function singleImagePickerModal()
         {
             $srcID = $this->request->getGet('src');
             $inputID = $this->request->getGet('input');
+            $images = $this->imageModel->findAll();
 
             return view('admin/pages/images/picker/single', [
                 'srcID' => $srcID,
-                'inputID' => $inputID
+                'inputID' => $inputID,
+                'variable' => random_string('alpha', 16),
+                'divId' => random_string('alpha', 16),
+                'images' => $images
             ]);
         }
 
@@ -32,10 +41,14 @@
         {
             $area = $this->request->getGet('area');
             $inputName = $this->request->getGet('input');
+            $images = $this->imageModel->findAll();
 
             return view('admin/pages/images/picker/multiple', [
                 'area' => $area,
-                'inputName' => $inputName
+                'inputName' => $inputName,
+                'variable' => random_string('alpha', 16),
+                'divId' => random_string('alpha', 16),
+                'images' => $images
             ]);
         }
 
